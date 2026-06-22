@@ -1,0 +1,89 @@
+{
+  "projectType": "saas",
+  "projectName": "Theta Labs",
+  "projectDescription": "A prediction market trading platform that aggregates markets from Polymarket and Kalshi, offering spot trading, paper options (calls, puts, and selling premium), narrative baskets, portfolio tracking, and a social leaderboard.",
+  "theme": "luma",
+  "primaryColor": "#7c7c7c",
+  "lightColor": "#181818",
+  "darkColor": "#b0b0b0",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "account-setup"
+            ]
+          },
+          {
+            "group": "Trading",
+            "pages": [
+              "trading/spot-trading",
+              "trading/options-trading",
+              "trading/narratives",
+              "trading/order-types"
+            ]
+          },
+          {
+            "group": "Portfolio",
+            "pages": [
+              "portfolio/overview",
+              "portfolio/deposit-withdraw",
+              "portfolio/positions"
+            ]
+          },
+          {
+            "group": "Platform",
+            "pages": [
+              "platform/markets",
+              "platform/watchlist",
+              "platform/leaderboard"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "help/faq",
+              "help/glossary"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Unified prediction market feed from Polymarket and Kalshi",
+    "Paper options trading — calls, puts, and selling premium on prediction markets",
+    "Narrative baskets — trade a curated group of related markets as one position",
+    "Real-time portfolio tracking across all platforms with P&L charts",
+    "Watchlist with price alerts and trending market discovery",
+    "Social leaderboard for live and paper trading performance",
+    "Embedded wallet via Privy — no external wallet needed",
+    "Deposit and withdraw USDC across Polygon and Solana"
+  ],
+  "publicApiSurface": [
+    "markets.list — fetch all active markets from Polymarket and Kalshi",
+    "markets.daily — fetch markets expiring today or tomorrow",
+    "markets.getById — get a single market by ID",
+    "markets.getEvent — get all markets under a shared event",
+    "markets.priceHistory — OHLC price history for a market (1D/1W/1M/1Y/ALL)",
+    "markets.orderbook — live bid/ask orderbook for a market",
+    "trading.buy / trading.sell — execute spot trades on Polymarket or Kalshi",
+    "trading.redeem — redeem resolved positions",
+    "options.getOptions — list options series available for trading",
+    "optionsTrading.buy — buy a call or put option contract",
+    "optionsTrading.sell — write (sell) an option to collect premium",
+    "optionsTrading.getPositions — list open options positions",
+    "narratives.list — list all narrative baskets",
+    "narratives.buy / narratives.sell — trade a narrative basket",
+    "narratives.getNarrativePositions — list open narrative positions",
+    "portfolio.overview — portfolio value, buying power, and positions summary",
+    "portfolio.history — portfolio value snapshots over time",
+    "watchlist.add / watchlist.remove — manage watchlist",
+    "social.leaderboard — ranked trader performance"
+  ]
+}

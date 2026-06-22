@@ -1,0 +1,90 @@
+---
+title: "Spot Trading"
+description: "Buy and sell YES/NO shares on Polymarket and Kalshi markets using USDC."
+---
+
+Spot trading is the simplest way to take a position on a prediction market. You buy shares that represent a probability — each share is worth between $0 and $1, settling to exactly $1 if your outcome is correct, or $0 if it isn't.
+
+## How spot trading works
+
+Every market on Theta Labs has two sides: **YES** and **NO**. The price of a share reflects the crowd's implied probability of that outcome occurring.
+
+- A YES share priced at **40¢** implies a **40% probability** the event happens
+- A NO share priced at **60¢** implies a **60% probability** the event does not happen
+- YES price + NO price always equal $1.00
+
+When a market resolves, every winning share pays out **$1.00** and every losing share pays out **$0.00**.
+
+<Note>
+Theta Labs aggregates markets from two platforms. **Polymarket** markets settle in USDC.e on Polygon. **Kalshi** markets settle in USDC on Solana. Your wallet holds funds for both automatically.
+</Note>
+
+## Finding a market
+
+Use the search bar at the top of the Trade page to search by keyword, topic, or person. You can also browse by category — politics, sports, crypto, science, and more.
+
+Markets from Polymarket display a blue **Poly** badge. Markets from Kalshi display a purple **Kalshi** badge.
+
+## Buying shares
+
+### YES vs NO
+
+- Buy **YES** if you think the event is more likely than the current price suggests
+- Buy **NO** if you think the event is less likely than the current price suggests
+
+Both YES and NO shares work identically — you're always betting that your chosen outcome happens.
+
+### Example
+
+> YES is trading at **40¢**. You buy **100 YES shares** for **$40**.
+>
+> - If YES resolves: your 100 shares pay $1.00 each → **+$60 profit** ($100 payout − $40 cost)
+> - If NO resolves: your shares are worth $0 → **−$40 loss** (your full cost)
+
+### Placing a trade
+
+<Steps>
+  <Step title="Select a market">
+    Search or browse to find the market you want to trade. Click it to open the market detail page.
+  </Step>
+  <Step title="Choose YES or NO">
+    Select the outcome you want to buy. The current price shows the implied probability.
+  </Step>
+  <Step title="Enter your amount">
+    Type the dollar amount you want to spend, or enter the number of shares directly. The order panel will show your estimated shares and cost.
+  </Step>
+  <Step title="Review and confirm">
+    Check the price, share count, and potential payout. Click **Buy** to submit the order.
+  </Step>
+  <Step title="Order executes">
+    Your order fills at the best available price. Your position appears in your portfolio.
+  </Step>
+</Steps>
+
+## Selling shares
+
+You can sell your shares at any time before a market resolves — you don't have to wait for settlement. Selling lets you:
+
+- Lock in a profit if the price has moved in your favor
+- Cut a loss if you change your view
+- Free up capital to redeploy elsewhere
+
+To sell, open the market from your portfolio or the trade page, select **Sell**, enter the number of shares you want to close, and confirm. You receive the current market price for each share sold.
+
+<Tip>
+The NO side of a market is often mispriced when sentiment is skewed heavily toward YES. Trading NO can offer better value in markets with very high or very low implied probabilities.
+</Tip>
+
+## Settlement
+
+When a market resolves, the outcome is determined by the rules defined by Polymarket or Kalshi. Once resolved:
+
+- **Winning shares** (e.g., YES shares on a YES outcome) automatically pay out **$1.00 each**
+- **Losing shares** expire worthless at **$0.00**
+- Proceeds are credited to your wallet automatically — no action needed
+
+Settlement timing varies by market. Some markets resolve within hours of the event; others take days while the result is confirmed.
+
+<Note>
+You do not need to manually claim winnings. Settlement is handled automatically and funds appear in your wallet balance once processed.
+</Note>

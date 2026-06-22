@@ -1,0 +1,78 @@
+---
+title: "Account Setup"
+description: "Wallets, funding, and account configuration on Theta Labs."
+---
+
+## Sign in
+
+Theta Labs uses [Privy](https://privy.io) for authentication. You can sign in with your email address or a social account (Google, Apple, etc.) — no external wallet like MetaMask or Phantom is required.
+
+When you sign in for the first time, Privy creates an **embedded wallet** for you automatically. This wallet is tied to your login and lives in your browser. You don't need to manage a seed phrase or install any browser extension to get started.
+
+<Info>
+Embedded wallets are non-custodial. Theta Labs never holds your private keys — they are encrypted and stored in your browser via Privy's secure infrastructure. Only you can sign transactions from your wallet.
+</Info>
+
+---
+
+## Your wallets
+
+Theta Labs creates two wallets for you:
+
+| Wallet | Network | Used for |
+|--------|---------|----------|
+| **EVM wallet** | Polygon | Polymarket trades |
+| **Solana wallet** | Solana | Kalshi trades |
+
+Both wallet addresses are shown on your **Portfolio** page. Navigate to **Portfolio → Deposit** to see your EVM address (for Polygon deposits) and your Solana address (for Solana deposits).
+
+---
+
+## Funding your account
+
+<Warning>
+Always deposit to the correct chain. Sending USDC on the wrong network (for example, sending Solana USDC to your EVM address) will result in lost funds that cannot be recovered.
+</Warning>
+
+<Tabs>
+  <Tab title="Polymarket (Polygon)">
+    To trade on Polymarket markets, deposit **USDC.e** on the **Polygon** network to your EVM wallet address.
+
+    1. Go to **Portfolio** and click **Deposit**.
+    2. Copy your **EVM wallet address** (starts with `0x`).
+    3. From a centralized exchange or another wallet, send USDC.e to that address on the Polygon network.
+    4. Once the transaction confirms on-chain, your balance appears under **Polymarket** on the Portfolio page.
+
+    From there, you can use the **Transfer** button to move funds from your Theta Labs holding wallet to your Polymarket account, making them available to trade.
+  </Tab>
+  <Tab title="Kalshi (Solana)">
+    To trade on Kalshi markets, deposit **USDC** on the **Solana** network to your Solana wallet address.
+
+    1. Go to **Portfolio** and click **Deposit**.
+    2. Copy your **Solana wallet address** (a base-58 string).
+    3. From a centralized exchange or another wallet, send USDC to that address on the Solana network.
+    4. Once the transaction confirms on-chain, your balance appears under **Kalshi** on the Portfolio page.
+  </Tab>
+</Tabs>
+
+---
+
+## Buying power
+
+Your **buying power** is the total USDC available across your connected accounts, ready to be deployed in trades. It is displayed on the dashboard and the Portfolio page.
+
+Buying power is broken down by platform:
+
+- **Theta Labs** — funds held in your Privy EVM wallet, not yet transferred to a trading platform
+- **Polymarket** — available USDC in your Polymarket account
+- **Kalshi** — available USDC in your Kalshi account
+
+The total shown at the top of your Portfolio page is the sum of all three. Open positions are tracked separately under **Positions**.
+
+---
+
+## Paper trading balance
+
+Options trading on Theta Labs is **paper trading**. When you first sign in, you receive a **$1,000 virtual balance** that you can use to trade calls and puts without risking real money.
+
+Your paper trading balance appears in the **Options** card on the Portfolio page, alongside your realized P&L from paper trades. This balance is separate from your live USDC holdings and does not affect your real portfolio value.

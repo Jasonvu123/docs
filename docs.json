@@ -1,0 +1,66 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "Theta Labs",
+  "theme": "luma",
+  "favicon": "https://media.brand.dev/d074fd05-42de-4fd0-9991-70d24490b8d3.svg",
+  "colors": {
+    "primary": "#7c7c7c",
+    "light": "#b0b0b0",
+    "dark": "#181818"
+  },
+  "navbar": {
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/shah625/thetalabs"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "account-setup"
+            ]
+          },
+          {
+            "group": "Trading",
+            "pages": [
+              "trading/spot-trading",
+              "trading/options-trading",
+              "trading/narratives",
+              "trading/order-types"
+            ]
+          },
+          {
+            "group": "Portfolio",
+            "pages": [
+              "portfolio/overview",
+              "portfolio/deposit-withdraw",
+              "portfolio/positions"
+            ]
+          },
+          {
+            "group": "Platform",
+            "pages": [
+              "platform/markets",
+              "platform/watchlist",
+              "platform/leaderboard"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "help/faq",
+              "help/glossary"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

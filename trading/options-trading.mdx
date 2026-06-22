@@ -1,0 +1,216 @@
+---
+title: "Options Trading"
+description: "Trade calls and puts on prediction market outcomes using leveraged, defined-risk contracts."
+---
+
+Options on Theta Labs are derivatives on prediction market probabilities. Instead of buying shares directly, you buy (or sell) the right to profit if a market's probability moves past a specific threshold — called the **strike price** — before an expiry date.
+
+This lets you express a view with a fraction of the capital, while capping your downside to the premium you paid.
+
+<Warning>
+Options trading on Theta Labs is currently **paper trading only**. You start with a virtual $1,000 balance. No real money is at risk, and no real funds are required.
+</Warning>
+
+## Key terms
+
+| Term | What it means |
+|------|--------------|
+| **Strike price** | The probability threshold the market must cross for your option to pay off. "Strike 40%" means the market must exceed 40% probability. |
+| **Premium** | The price you pay to buy an option contract, or receive when you sell one. This is your maximum loss as a buyer. |
+| **Expiry** | The date the contract settles. Options on Theta Labs expire weekly or monthly. |
+| **Call** | Profits if the market price goes **above** your strike. |
+| **Put** | Profits if the market price goes **below** your strike. |
+| **Writing / Selling** | Selling a contract to collect the premium upfront. You take on the obligation to pay if the market moves against you. |
+| **Contracts** | The unit quantity. Each contract covers one unit of the underlying market. |
+
+Options are priced using a Bachelier-style model (similar to Black-Scholes but adapted for probability-bounded markets). The price accounts for time to expiry, implied volatility, and distance from the current probability.
+
+## The capital efficiency case
+
+> "Will candidate X win?" is trading at 40¢. You think the probability is going higher. Two ways to play it:
+
+| Approach | Capital required | If price hits 60¢ | If price hits 80¢ | If price drops to 30¢ |
+|----------|-----------------|-------------------|-------------------|----------------------|
+| Buy 1,000 shares at 40¢ | **$400** | +$200 (50%) | +$400 (100%) | −$100 (−25%) |
+| Buy a call at 40¢ strike | **$50 premium** | +$150 (300%) | +$350 (700%) | −$50 (capped) |
+
+The call costs 8× less capital and delivers 7× more upside, with your downside capped at the $50 premium — regardless of how far the price falls.
+
+## Calls, puts, and selling
+
+<Tabs>
+  <Tab title="Calls">
+    ### What a call is
+
+    A call gives you the right to profit if the underlying market's probability rises **above your strike price** before expiry.
+
+    **When to buy a call:**
+    - You think a market is underpriced and will move higher
+    - You want leveraged upside with a defined maximum loss
+    - You want shorter-term exposure without locking up capital until settlement
+
+    ### How call payoff works
+
+    At expiry, a call pays:
+    - `max(market price − strike, 0)` per contract
+
+    If the market never crosses your strike, the option expires worthless and you lose only the premium.
+
+    ### Example
+
+    You buy a **call at Strike 40%** on a market currently at 22%, expiring in 4 months. You pay a **$5 premium**.
+
+    | Market price at expiry | Your payoff | Net P&L |
+    |------------------------|-------------|---------|
+    | 30% (below strike) | $0 | −$5 (lose premium) |
+    | 40% (at strike) | $0 | −$5 (lose premium) |
+    | 60% (above strike) | $0.20 per contract | +$0.15 net |
+    | 80% (above strike) | $0.40 per contract | +$0.35 net |
+
+    Your **max loss is always the premium paid**. Your upside scales with how far the market moves above your strike.
+
+    <Tip>
+    Calls on low-probability markets (e.g., Strike 15%) are cheap premiums with massive upside if the event gains traction.
+    </Tip>
+  </Tab>
+  <Tab title="Puts">
+    ### What a put is
+
+    A put gives you the right to profit if the underlying market's probability falls **below your strike price** before expiry.
+
+    **When to buy a put:**
+    - You think a market is overpriced and will move lower
+    - You want to hedge an existing long position in the spot market
+    - You expect a catalyst that will reduce the probability of an event
+
+    ### How put payoff works
+
+    At expiry, a put pays:
+    - `max(strike − market price, 0)` per contract
+
+    If the market stays above your strike, the option expires worthless.
+
+    ### Example
+
+    You buy a **put at Strike 45%** on a market currently at 53%, expiring in 6 weeks. You pay a **$6 premium**.
+
+    | Market price at expiry | Your payoff | Net P&L |
+    |------------------------|-------------|---------|
+    | 50% (above strike) | $0 | −$6 (lose premium) |
+    | 45% (at strike) | $0 | −$6 (lose premium) |
+    | 30% (below strike) | $0.15 per contract | +$9 net |
+    | 10% (below strike) | $0.35 per contract | +$29 net |
+
+    **Max loss = premium paid.** Payoff is capped at the strike value (a market cannot go below 0%).
+
+    <Tip>
+    Puts on high-probability markets (Strike 80%+) can be cheap insurance against a dramatic reversal.
+    </Tip>
+  </Tab>
+  <Tab title="Selling (Writing)">
+    ### What selling an option means
+
+    When you sell (write) an option, you collect the premium upfront and take on the obligation to pay if the market moves against you. You profit when the market stays on your side of the strike.
+
+    **When to sell options:**
+    - You believe a market is unlikely to move significantly before expiry
+    - You want to generate yield (premium income) on markets you're already watching
+    - Short-duration options on stable markets offer the best premium-to-risk ratio
+
+    ### How selling works
+
+    When you sell a call at Strike 25%:
+    - You collect the premium immediately
+    - You profit if the market stays **below 25%** at expiry
+    - If the market crosses 25%, you owe the payoff to the buyer
+
+    You must post **collateral** to cover your maximum possible loss. This collateral is locked until the contract expires or is closed.
+
+    ### Collateral requirements
+
+    | Option type | Collateral per contract |
+    |-------------|------------------------|
+    | Sell a call at Strike K | `max(1 − K − premium, 0)` |
+    | Sell a put at Strike K | `max(K − premium, 0)` |
+
+    ### Example
+
+    You sell a **call at Strike 25%** on a market at 20%. You collect an **8¢ premium** and post **17¢ collateral**.
+
+    | Market price at expiry | What you pay out | Your net |
+    |------------------------|-----------------|---------|
+    | 20% (below strike) | $0 | +$0.08 (keep premium) |
+    | 25% (at strike) | $0 | +$0.08 (keep premium) |
+    | 40% (above strike) | $0.15 | −$0.07 |
+    | 60% (above strike) | $0.35 | −$0.27 |
+
+    **Return on collateral** is displayed before you confirm the trade, along with an annualized yield estimate.
+
+    <Tip>
+    Selling options on markets you believe are near their true probability generates income regardless of direction, as long as the market doesn't spike.
+    </Tip>
+  </Tab>
+</Tabs>
+
+## Paper trading
+
+Options on Theta Labs use a **$1,000 virtual balance**. This means:
+
+- You can trade with full functionality — calls, puts, selling, closing positions
+- No real USDC is required or at risk
+- Gains and losses affect your virtual balance only
+- Your P&L is tracked and displayed in the options dashboard
+
+Your paper balance persists across sessions and is tracked in the options dashboard alongside your cumulative P&L.
+
+<Warning>
+Paper trading results do not reflect what real options would cost or pay in a live market. Liquidity, fees, and slippage would all differ in a real options market.
+</Warning>
+
+## Reading the options chain
+
+The options chain shows available contracts for a given market. Each row is a unique combination of:
+
+- **Strike price** — the probability threshold (shown as a percentage)
+- **Expiry date** — weekly or monthly
+- **Option type** — call or put
+- **Ask price** — what you pay to buy
+- **Bid price** — what you receive when selling
+
+Contracts closer to the current market price (at-the-money) are more expensive because they have a higher probability of paying off. Contracts far from the current price (out-of-the-money) are cheaper but require a larger move to become profitable.
+
+### Placing an options trade
+
+<Steps>
+  <Step title="Choose a market">
+    Navigate to the Options section and select a market from the options chain or the market list.
+  </Step>
+  <Step title="Select strike and expiry">
+    Pick the strike price and expiry date that match your view. The current market probability is shown for reference.
+  </Step>
+  <Step title="Choose call, put, or sell">
+    Select your position type based on your directional view.
+  </Step>
+  <Step title="Set quantity">
+    Enter the number of contracts. The trade modal shows your total cost (for buys) or collateral required (for sells), max profit, and max loss.
+  </Step>
+  <Step title="Review the P&L chart">
+    The modal displays a payoff diagram showing how your P&L changes at different market prices at expiry.
+  </Step>
+  <Step title="Confirm">
+    Click **Buy** or **Sell** to execute. The order fills instantly against the platform market maker.
+  </Step>
+</Steps>
+
+## Managing positions
+
+Your open options positions appear in the Options dashboard. For each position you can see:
+
+- Current mark price vs your entry price
+- Unrealized P&L
+- Days remaining to expiry
+- Greeks: delta, gamma, theta, vega
+
+You can close any position before expiry by clicking it and selecting **Close Position**. Closing early lets you lock in a gain or cut a loss without waiting for settlement.
+
+At expiry, positions settle automatically based on the market's final probability. Winners receive their payoff; losing positions expire worthless.

@@ -1,0 +1,71 @@
+---
+title: "Order Types"
+description: "Understand how orders execute on Polymarket and Kalshi, and how to minimize slippage."
+---
+
+Theta Labs routes your trades through the native order books of Polymarket and Kalshi. Understanding how these markets execute orders helps you get better prices and avoid unexpected costs.
+
+## Market orders
+
+All trades on Theta Labs are submitted as **market orders** — they execute immediately at the best available price.
+
+When you place a trade, the platform:
+
+1. Checks the current best ask (for buys) or best bid (for sells)
+2. Submits your order to the exchange
+3. Fills as much as possible at the current price, then continues at the next available price level if needed
+
+Market orders prioritize speed and certainty of execution over getting the exact price you saw. The actual fill price may differ slightly from the price displayed — this difference is called **slippage**.
+
+## The orderbook
+
+Both Polymarket and Kalshi use limit-order-based books, but the underlying mechanics differ:
+
+### Polymarket (CLOB)
+
+Polymarket uses a **Central Limit Order Book (CLOB)**. Orders sit in the book as bids and asks. When you place a market order to buy, it matches against the lowest available ask. The CLOB is off-chain for matching but settles on-chain on Polygon.
+
+### Kalshi
+
+Kalshi uses a traditional exchange orderbook with limit orders. The bid-ask spread tends to be slightly wider on less liquid markets. Kalshi trades settle directly on Solana via USDC.
+
+### Reading the spread
+
+The **bid-ask spread** is the difference between what sellers want and what buyers are offering:
+
+- **Bid** = the highest price someone is willing to buy at
+- **Ask** = the lowest price someone is willing to sell at
+- A narrow spread (e.g., 39¢ bid / 41¢ ask) means a liquid market — you can trade near the fair value
+- A wide spread (e.g., 30¢ bid / 50¢ ask) means the market is thin — large orders will move the price significantly
+
+## Slippage
+
+Slippage occurs when your order fills at a different price than expected. It happens when:
+
+- The market moves between when you click and when the order reaches the exchange
+- Your order is large enough to consume multiple price levels in the orderbook, so later fills occur at worse prices
+
+### Minimizing slippage
+
+<Tip>
+Trade in **liquid markets**. High-volume markets (shown by their volume figure on the market card) have tighter spreads and can absorb larger orders without significant price impact.
+</Tip>
+
+| Situation | What to do |
+|-----------|-----------|
+| Wide bid-ask spread | Break a large order into smaller ones over time, or accept the wider cost as part of the trade |
+| Low-volume market | Expect more slippage; size positions smaller |
+| Fast-moving market | Prices update in real time — if a market is rapidly moving, your fill may differ from what you see |
+
+## Position sizing
+
+A few practical rules for sizing your trades:
+
+- **Never risk more than you're prepared to lose entirely.** Even high-probability markets can resolve unexpectedly.
+- **Spread across markets** rather than concentrating a large position in one. This reduces the impact of a single bad outcome.
+- **Start small on new markets.** Until you understand a market's liquidity and spread behavior, keep initial positions small.
+- **Account for the spread cost.** If you buy at 41¢ and the bid is 39¢, you're starting 2¢ in the hole. Factor this into your expected return.
+
+<Info>
+Options trades on Theta Labs execute instantly against the platform market maker at a quoted price — there is no orderbook slippage for options. The price you see in the trade modal is the price you pay.
+</Info>
