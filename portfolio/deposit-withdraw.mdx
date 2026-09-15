@@ -1,64 +1,79 @@
 ---
-title: "Deposits & Withdrawals"
-description: "Fund your account with USDC on Polygon and withdraw to any Polygon address."
+title: "Deposits & withdrawals"
+description: "Fund your account with USDC on Polygon and withdraw native USDC to any Polygon address."
 ---
 
-Theta Labs runs on a single balance: deposit **USDC on Polygon** and it converts automatically to **pUSD**, your tradeable balance. When you're done, withdraw native USDC to any Polygon address. There are no sub-accounts and no transfer steps.
+updown runs on a single balance. Deposit **USDC on Polygon** and it converts automatically to **pUSD**, your trading balance. Withdraw native USDC to any Polygon address whenever you like. There are no fees on either side and gas is sponsored.
 
-The **Deposit** and **Withdraw** buttons live on the Balance card of your Portfolio page; the cash pill in the top navigation also opens the deposit view.
+The **Deposit** and **Withdraw** buttons live on the Balance card of your Portfolio page. The **Portfolio / Cash** chip in the top bar also opens the deposit view.
 
 <Warning>
-Deposit **USDC on the Polygon network only** — the deposit modal reminds you: "Only send USDC on the correct network." Other tokens or networks are not supported, and funds sent incorrectly may not be recoverable. Contact support immediately if this happens (see the [FAQ](/help/faq) for support channels).
+Send **USDC on the Polygon network only**. The deposit modal warns: "Wrong tokens or networks may result in permanent loss." There is no in-app recovery. If it happens, contact [support](/help/support) with the transaction hash.
 </Warning>
 
 <Tabs>
   <Tab title="Deposit">
     <Steps>
       <Step title="Open the Wallet modal">
-        Click **Deposit** on your Portfolio page (or the cash pill in the top navigation). If it's your first time, complete the one-time **Enable trading** approval first — this is what lets deposits convert automatically.
+        Click the **Portfolio / Cash** chip, or **Deposit** on your Portfolio page. The first time, complete the one-time **Allow trading** approval and click **Done**. See [Account setup](/account-setup#allow-trading).
       </Step>
-      <Step title="Copy your Polygon address">
-        The modal shows your deposit address (`0x…`) with a copy button and a QR code you can scan from a mobile wallet.
+      <Step title="Copy your address">
+        Under **Deposit**, the card labelled "USDC on Polygon" shows a QR code and your address. Click **Copy Address**.
       </Step>
-      <Step title="Send USDC on Polygon">
-        From your exchange or wallet, send **USDC** to that address on the **Polygon** network.
+      <Step title="Send at least $2 of USDC on Polygon">
+        From your exchange or wallet, send USDC to that address on the **Polygon** network. The minimum is **$2**.
       </Step>
       <Step title="Watch it convert">
-        The modal tracks progress live: *Deposit detected… → Finalizing… → Converting your deposit to pUSD…* Conversion typically completes in well under a couple of minutes. Your first-ever deposit includes a one-time wallet setup that adds a few extra seconds.
+        The modal tracks progress live: *Deposit detected… → Finalizing… → Converting your deposit to pUSD…* and finishes with "Deposit converted to pUSD". You can keep the modal open or come back later. Your very first deposit also sets up your deposit wallet on-chain, which adds a few seconds.
+      </Step>
+      <Step title="Confirm your balance">
+        Click **Go to Portfolio**. The amount appears in **Available**.
       </Step>
     </Steps>
 
-    When conversion finishes, the amount appears in your **Available** balance, ready to trade.
+    <Note>
+    Sent less than $2? The modal explains: "We received $X, but deposits under $2 can't be converted. Send at least $Y more USDC and it all converts automatically — your funds are safe meanwhile."
+    </Note>
   </Tab>
 
   <Tab title="Withdraw">
-    Withdrawals send **native USDC on Polygon** from your balance to any address you choose — gas-free, and usually instant.
+    Withdrawals send **native USDC on Polygon** from your balance to any address you choose. The modal describes it as "Gas-free, usually instant."
 
     <Steps>
       <Step title="Open the Withdraw modal">
         Click **Withdraw** on your Portfolio page.
       </Step>
       <Step title="Enter the recipient">
-        Paste the destination Polygon address (`0x…`).
+        Paste the destination in **Recipient address (Polygon)**. It must be a valid 0x address.
       </Step>
       <Step title="Enter the amount">
-        Type an amount in USDC or click **MAX**. The modal shows "You receive ≈ $X USDC". The minimum withdrawal is **$2**.
+        Type an amount in **Amount (USDC)** or click **MAX**. The minimum is **$2**. The modal shows **You receive** as "≈ $X USDC".
       </Step>
       <Step title="Confirm">
-        Confirm the withdrawal. The success screen links to the transaction on Polygonscan.
+        Click **Withdraw**. The success screen reads "Withdrawal confirmed" (or "Withdrawal submitted" while the transaction mines) with a **View transaction →** link to Polygonscan. Choose **Withdraw again** or **Done**.
       </Step>
     </Steps>
+
+    <Warning>
+    "Withdrawals are irreversible — double-check the address."
+    </Warning>
+
+    <Note>
+    Money committed to open windows cannot be withdrawn until those windows settle. The modal's **Available** shows your full pUSD balance, so a withdrawal that dips into committed funds is refused with a message like "Amount $X exceeds your available $Y ($Z is committed to open interval positions)."
+    </Note>
   </Tab>
 </Tabs>
 
 ## Supported assets
 
-| Direction | Asset | Network |
-|-----------|-------|---------|
-| Deposit | USDC | Polygon |
-| Held as | pUSD (converted automatically) | — |
-| Withdraw | Native USDC | Polygon |
+| Direction | Asset | Network | Minimum | Fee |
+|-----------|-------|---------|---------|-----|
+| Deposit | USDC | Polygon | $2 | None |
+| Held as | pUSD (converted automatically) | — | — | — |
+| Withdraw | Native USDC | Polygon | $2 | None, gas sponsored |
+
+Withdrawals appear in **Portfolio → history** as "Withdrawal to 0x…".
 
 <Info>
-pUSD is your tradeable balance on the platform — you never need to manage the conversion yourself. Deposits convert to pUSD on the way in, and withdrawals pay out native USDC on the way out.
+Restricted accounts keep the ability to withdraw. See [Support](/help/support#restricted-accounts).
 </Info>

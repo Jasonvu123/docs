@@ -1,0 +1,70 @@
+---
+title: "Positions and history"
+description: "Read an open position, close it, and follow the history feed and settled-window pages."
+---
+
+Your open positions and past activity live on the **Portfolio** page under the **positions** and **history** tabs. The market page adds a **Live Positions** panel for the window you are looking at.
+
+## Open positions
+
+Under **positions → Interval markets**, each row shows:
+
+| Field | What it means |
+|-------|--------------|
+| **Market** | Image and title, then your side and cadence with the countdown, for example "Up · 15m · closes in 12m", or "· settling" once the window has closed. |
+| **Contracts** | How many you hold on that side. |
+| **Entry** | Your average purchase price, in cents. |
+| **Now** | The current mark, in cents. |
+| **Pays** | What you receive if the side wins, for example "$5.00" with "if Up". |
+| **Value / P&L** | The position's current value and unrealized profit or loss with a percentage, or "awaiting settle" after the close. |
+| **Trade** / **View** | Opens the market page. The button reads **View** once the window is settling. |
+
+Positions refresh every 10 seconds.
+
+## Live Positions on the market page
+
+The panel above the outcome row shows your contracts in the current window:
+
+- **Buying power** at the top: pUSD not committed to open windows.
+- One row per side with a color dot, the side label (for example "Up" or "49ers Down"), the contract count, the value, and a red **Sell** button.
+- A sub-line with "entry 51¢ · now 54¢" and "pays $5.00 if Up".
+- Totals: **Value**, **Unrealized** (for example "+$0.15 (+5.9%)"), and **Total return** (your realized profit or loss on this market).
+
+When you hold nothing, it reads "No position in this window yet."
+
+## Closing a position early
+
+Hold the **Sell** button on a side's row in **Live Positions** until it reads "Selling…". That sells the whole position on that side at updown's bid, and the realized difference is paid or collected immediately. To sell a partial amount, use the ticket's **Market → Sell** form. See [Placing orders](/trading/placing-orders#selling-back).
+
+<Tip>
+Selling early gives you the current bid rather than the $1 settlement value. Holding to the close pays more if your side wins, but selling removes the uncertainty.
+</Tip>
+
+## History
+
+The **history** tab lists every fill and settlement, newest first, with **All / Interval** filters. Each row shows:
+
+| Element | What it shows |
+|---------|--------------|
+| **Label** | **Bought**, **Sold**, **Won**, **Lost**, or **Settled**. |
+| **Title and side** | The market and the side you held, in the side's color. |
+| **Detail** | For example "3.00 contracts @ 51¢", "· paid $1 each", "· settled worthless", or "· nothing owed either way". |
+| **Time** | When it happened. |
+| **Cash** | The signed cash effect, for example "+$3.00" or "−$1.53". |
+| **P&L** | Realized profit or loss with a percentage, where applicable. |
+
+Withdrawals also appear here as "Withdrawal to 0x…". History refreshes every 30 seconds and shows up to 200 rows.
+
+<Note>
+A window you sold out of completely shows only its **Sold** rows. If you held both sides of a window, the winning side is shown.
+</Note>
+
+## Settled-window pages
+
+Click a history row's title, or pick a window from the **Past** dropdown on a market page, to open its result page. It shows the header (for example "Crypto · 15 min · settled"), the **Result** ("Up won", "Rangers up", or "unchanged — settles down"), **Open**, **Close**, and the full static chart with the level to beat marked as "Target".
+
+A page appears within seconds to about 5 minutes of the close. Before it is recorded, it reads "This window isn't recorded yet — Windows are saved shortly after they close." with a **Back to the live market** link.
+
+<Info>
+Older accounts may see **Options**, **Written (covered)**, and **Markets** sections with **Redeem**, **Sell**, and **Share** buttons. Those belong to a discontinued product and appear only if you still hold positions in it.
+</Info>

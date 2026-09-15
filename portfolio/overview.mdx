@@ -1,56 +1,74 @@
 ---
-title: "Portfolio Overview"
-description: "Track your balance, positions, and P&L in one place."
+title: "Portfolio overview"
+description: "Read the Portfolio page and the Portfolio / Cash chip, and understand how each balance is calculated."
 ---
 
-Your Portfolio page is the central view for your activity on Theta Labs. It's built around two cards — **Balance** and **Portfolio value** — with your open positions and trade history below.
+Click **Portfolio** in the top bar. The page is built around two cards, **Balance** and **Portfolio value**, with your positions and history below.
 
-## Balance
+## The Portfolio / Cash chip
 
-The Balance card shows three numbers plus your **Deposit** and **Withdraw** buttons:
+The chip in the top bar shows two numbers at all times:
+
+- **Cash** — pUSD available to trade or withdraw.
+- **Portfolio** — cash plus the live value of your open positions.
+
+Its tooltip reads "Portfolio = cash + open positions · Cash = available to trade". Click the chip to open the **Wallet** modal.
+
+## Balance card
+
+The headline figure is your total **Balance**. Below it:
 
 | Cell | What it means |
 |------|--------------|
-| **Available** | Your pUSD cash, ready to deploy in new trades |
-| **In position** | The current market value of your open spot and options positions |
-| **Total traded** | Your lifetime trading volume |
+| **Available** | pUSD you can spend or withdraw now: your balance minus the cost of contracts still held in open windows. |
+| **In position** | The live value of everything you hold in open windows, marked at the current midpoint. |
+| **Total traded** | Face-value volume: **$1 per contract** across every buy and sell. It is not the money you have spent. |
 
-**Available** decreases when you open a position and increases when you sell, redeem winning shares, or an option settles in the money.
+The **Deposit** and **Withdraw** buttons sit on this card. See [Deposits & withdrawals](/portfolio/deposit-withdraw).
 
-## Portfolio value
+### What moves Available
 
-Your **total portfolio value** is your Available pUSD plus the market value of your open spot and options positions. The same figure is always visible in the portfolio pill in the top navigation.
+| Action | Effect |
+|--------|--------|
+| Buy | Minus the cost, held as exposure until the window settles. |
+| Sell back | Realized profit or loss applied immediately; the cost basis is released. |
+| Window settles | Plus $1 per winning contract, minus the held cost, applied once per window. |
+| Deposit | Plus the converted amount. |
+| Withdraw | Minus the amount. |
 
-The Portfolio value card charts this total over time:
+<Warning>
+Money in open windows is neither spendable nor withdrawable until those windows settle. The market page calls the spendable figure **Buying power**.
+</Warning>
 
-- **Time ranges**: 1D, 1W, 1M, 1Y, ALL — the default view is **1W**
-- Hover or drag on the chart and the headline value follows your cursor, with a date/time label on the chart
+## Portfolio value card
 
-Values refresh continuously while the page is open — every 15–60 seconds depending on the panel.
+The card charts your total value over time:
 
-## P&L tracking
+- **Ranges:** 1D, 1W, 1M, 1Y, ALL. The default is **1W**.
+- **Change line:** the signed change and percentage over the range, for example "+$12.40 (+3.1%) Past week".
+- **Hover or drag** the chart and the headline value follows your cursor.
 
-The P&L figure reflects your net profit or loss over the selected time range. It combines:
+Snapshots are taken every 15 minutes. While the page is open, balances refresh every 15 seconds, positions every 10 seconds, and history and the chart every 30 to 60 seconds.
 
-- **Unrealized P&L** — the gain or loss on positions you currently hold, based on the difference between your average entry price and the current market price
-- **Realized P&L** — locked-in gains or losses from positions you have closed or that have settled
+## P&L
 
-Gains are shown in green and losses in red.
+- **Unrealized** is shown per open position: current value minus cost, with a percentage. It reads "awaiting settle" once the window has closed.
+- **Realized** is shown per history row and, on each market page, as **Total return** for that market.
+
+Gains are green and losses are red.
 
 ## Positions and history
 
-Below the two cards, the **positions** tab lists your open **Options** and **Markets** (spot) positions, and the **history** tab shows past activity with **All / Options / Spot** filters. See [Positions](/portfolio/positions) for the details of each.
+Below the cards are three tabs:
 
-## Related pages
+| Tab | What it shows |
+|-----|--------------|
+| **positions** | Your open positions under **Interval markets**. |
+| **Open orders** | Empty until limit orders ship: "Interval trades fill instantly, so nothing rests here yet." |
+| **history** | Every buy, sell, and settlement, with **All / Interval** filters. |
 
-<CardGroup cols={3}>
-  <Card title="Deposits & Withdrawals" icon="arrow-down-to-line" href="/portfolio/deposit-withdraw">
-    Fund your account and withdraw USDC.
-  </Card>
-  <Card title="Positions" icon="chart-mixed" href="/portfolio/positions">
-    View and manage your open trades.
-  </Card>
-  <Card title="Account Setup" icon="wallet" href="/account-setup">
-    Learn about your wallet and how funding works.
-  </Card>
-</CardGroup>
+See [Positions and history](/portfolio/positions-and-history) for the row-by-row detail.
+
+<Info>
+Older accounts may also see **Options**, **Written (covered)**, and **Markets** sections and extra history filters. Those belong to a discontinued product and only appear if you still hold positions in it.
+</Info>

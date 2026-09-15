@@ -1,0 +1,107 @@
+---
+title: "How windows work"
+description: "Markets, windows, the level to beat, Up and Down, and how settlement pays."
+---
+
+Every market on updown tracks one live number and cuts time into **windows**. This page explains the mechanic that every other trading page builds on.
+
+## Markets and windows
+
+A **market** is one tracked number. Examples:
+
+- **Apple (AAPL)** — a stock price
+- **Bitcoin (BTC)** — a crypto price
+- **Rangers vs. Mariners** — a team's live win odds during a game
+- A prediction-market **outcome** — the live chance that an event happens
+
+A **window** is one round of that market. When a window opens, the market's value at that instant becomes the level **to beat**. The window then closes a fixed time later:
+
+| Hub | Window length | Grid |
+|-----|--------------|------|
+| **Live** | 15 minutes | Windows start on the quarter hour in UTC (:00, :15, :30, :45) and roll continuously. |
+| **Trade** | Daily | One window per UTC day, 00:00 – 23:59 UTC. |
+| **Trade** | Weekly | Monday 00:00 UTC to the next Monday. |
+| **Trade** | Monthly | The 1st at 00:00 UTC to the next 1st. |
+
+On Trade, the level to beat is the value at the previous period's close.
+
+## Up and Down
+
+Each window has two sides:
+
+- **Up** wins if the market's value closes the window **strictly above** the level to beat.
+- **Down** wins if it closes **at or below** the level to beat.
+
+<Note>
+**Tie rule.** If the value is unchanged at the close, the window settles as **Down**. Up needs a real move. The ticket's ⓘ note says it plainly: "If the price is unchanged, it settles as Down. Up needs a real move."
+</Note>
+
+On team markets, the two sides carry the team names and colors instead of Up and Down. On three-way soccer listings, the page tracks one team's win odds and the sides read "Up" and "Down / Flat".
+
+## Contracts and payout
+
+You buy **contracts** on a side. Each contract is priced between **1¢ and 99¢**, and the price is the market's implied chance that the side wins. At settlement:
+
+```
+Winning contract  →  $1.00
+Losing contract   →  $0.00
+```
+
+Every position is fully collateralized when you enter it. An Up contract at p¢ and a Down contract at 100 − p¢ together set aside exactly $1.00. You can never lose more than you paid, and you can never be short or owe money.
+
+### Worked example
+
+> **Apple (AAPL)**, window 2:00 – 2:15 PM. **To beat: $325.40.**
+>
+> You hold a **$5** box on **Up** at **51¢**, which buys 9.80 contracts.
+>
+> - Close at **$325.62** → Up wins → you receive **$9.80** (profit $4.80).
+> - Close at **$325.40** or lower → Down wins → your **$5** is gone.
+
+## Reading the window header
+
+| Element | What it shows |
+|---------|--------------|
+| **Window line** | The open and close times of the current window. |
+| **Status tag** | **LIVE** while trading. **UPCOMING · opens 7:30 PM** before a sports window starts. **GAME OVER · SETTLING** when a game ends mid-window. **FINAL** on the last window of a series. |
+| **To beat** | The value when the window opened. |
+| **Now** | The live value, with the signed move and percentage since the open. |
+| **Time left** | Countdown to the close. It turns amber when under half the window remains and red when under a fifth. |
+
+## Settlement
+
+Settlement is automatic. There is no claim step.
+
+1. When the window closes, updown compares the value at the close with the value at the open, using the same feed that powers the chart.
+2. Strictly higher settles **Up**. Anything else settles **Down**.
+3. Winning contracts are paid **$1.00 each** and losing contracts expire at zero. The net amount moves on-chain once per window.
+
+A settlement pass runs every 5 minutes, and the page also triggers one when a window rolls, so a closed window is usually recorded within seconds and paid within about 5 minutes. Until then your position reads "settling" or "awaiting settle". Afterwards, **Portfolio → history** shows the result as **Won**, **Lost**, or **Settled**. See [Positions and history](/portfolio/positions-and-history).
+
+Every settled window has its own page with **Result**, **Open**, **Close**, and the full chart. Open it from the **Past** dropdown on the market page or from a history row.
+
+### Settlement rules on every market page
+
+Each market page has a **Settlement rules** section with the exact rules for that market. The stock version reads:
+
+> A new window opens every 15 minutes. Its opening price is AAPL's price at the moment the window opens.
+>
+> Up wins only if AAPL's price closes strictly above that opening price. Down wins if it closes at or below it — so a window that finishes exactly unchanged settles Down.
+>
+> Each winning contract pays $1.00 and each losing contract expires at zero. Every position is fully collateralized when you enter, so an Up at p cents and its matching Down at 100 minus p cents together set aside exactly $1.00.
+
+Sports and outcome markets add that the metric is the prediction market's last-trade probability, sampled once a minute, and that the series ends when the underlying market closes.
+
+## Market hours and special cases
+
+- **Stocks** trade only on weekdays from **4:00 AM to 8:00 PM ET**. Outside those hours the market page reads "Market closed — stock markets trade weekdays 4:00 AM – 8:00 PM ET." and stock cards leave the Live hub.
+- **Crypto** trades 24/7.
+- **Sports** windows begin at kickoff and keep rolling through the game.
+
+<Warning>
+**Game over.** If a game ends in the middle of a window, the odds freeze and trading pauses. The ticket reads "Trading paused — game over" and explains that the window settles at the frozen odds, with payouts following shortly. The window in progress becomes the final one, and no new window opens after it. The page then reads "Series ended".
+</Warning>
+
+<Note>
+The settled value comes from the minute-level history feed at the close, which can differ by a tick from the last print you saw on the tape. Both the chart and settlement use the same feed.
+</Note>

@@ -1,0 +1,63 @@
+---
+title: "Trade markets"
+description: "Daily, weekly, and monthly up-or-down windows on stocks, crypto, and prediction-market outcomes."
+---
+
+The **Trade** hub runs the same up-or-down mechanic as Live, but with one window per **day**, **week**, or **month**. Click **Trade** in the top bar. The ticket, rules, and settlement are identical to Live; see [How windows work](/trading/how-windows-work) and [Placing orders](/trading/placing-orders).
+
+## What's listed
+
+| Row | What it tracks |
+|-----|---------------|
+| **Outcomes** | The live chance of a prediction-market outcome. You are calling whether the **chance** rises or falls over the window, not whether the event happens. |
+| **Stocks** | A stock's live share price. |
+| **Crypto** | A crypto asset's live USD price, 24/7. |
+
+## Window boundaries
+
+Trade windows follow **UTC**:
+
+| Expiry | Window |
+|--------|--------|
+| **Daily** | One UTC day, 00:00 – 23:59 UTC. |
+| **Weekly** | Monday 00:00 UTC to the next Monday. |
+| **Monthly** | The 1st at 00:00 UTC to the next 1st. |
+
+The level to beat is the value at the previous period's close. Cards show "Expires today" (in amber) or "Expires Sep 30 UTC" with a countdown such as "18d 5:12:34".
+
+<Warning>
+Stock subjects still follow tape hours (weekdays 4:00 AM – 8:00 PM ET) even though their window is a full UTC day. Off-hours, the market page shows the "Market closed" notice, and over a weekend the level to beat can be days old.
+</Warning>
+
+## Browsing the hub
+
+<Steps>
+  <Step title="Choose a view">
+    In the left rail, pick **All** to see one card per subject with its live value and 24-hour move, or pick an **Expiry** (**Daily / Weekly / Monthly**) to see that window's level to beat and its Up / Down prices.
+  </Step>
+  <Step title="Open a market">
+    With an expiry selected, click **▲ Up 51¢** or **▼ Down 49¢** on a card to open it with that side preselected, or click the card itself.
+  </Step>
+  <Step title="Switch expiry on the market page">
+    The page title contains a menu, for example "Apple (AAPL) | End-of-Day ▾ | Up or Down". Choose **15 Minutes** (which takes you to the Live page), **End-of-Day**, **End-of-Week**, or **End-of-Month**. Only the cadences that exist for that subject are listed.
+  </Step>
+</Steps>
+
+### Cards
+
+| Element | What it shows |
+|---------|--------------|
+| **Title** | The subject or outcome question. |
+| **Expiry tag** | **DAILY / WEEKLY / MONTHLY**. |
+| **To beat / Now** | The window's opening value and live value, with the ▲/▼ move. In the **All** view, the live value with "chance" or "price" and its 24-hour move instead. |
+| **Up / Down buttons** | Each side's price. Shown only when an expiry is selected. |
+| **Footer** | "Expires today" or "Expires Sep 30 UTC" with the countdown. In **All**: "Priced per expiry · daily, weekly, monthly". |
+
+## The market page
+
+The Trade market page is the same page as Live, with two differences:
+
+- The chart opens on **MKT** (the whole window) instead of the live tape, and adds **1D / 1W / 1M** lookbacks for long enough windows.
+- The headline expiry menu lets you switch cadence, as above.
+
+Settled Trade windows appear in the same **Past** dropdown and history feed as Live windows.
