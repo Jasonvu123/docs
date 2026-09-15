@@ -1,12 +1,12 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "name": "Theta Labs",
+  "name": "updown",
   "theme": "luma",
   "favicon": "https://media.brand.dev/d074fd05-42de-4fd0-9991-70d24490b8d3.svg",
   "colors": {
-    "primary": "#7c7c7c",
-    "light": "#b0b0b0",
-    "dark": "#181818"
+    "primary": "#3ecf8e",
+    "light": "#7ce3ad",
+    "dark": "#0b0b11"
   },
   "navigation": {
     "tabs": [
@@ -14,7 +14,7 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Get started",
             "pages": [
               "introduction",
               "quickstart",
@@ -24,9 +24,10 @@
           {
             "group": "Trading",
             "pages": [
-              "trading/options-trading",
-              "trading/spot-trading",
-              "trading/order-types"
+              "trading/how-windows-work",
+              "trading/live-markets",
+              "trading/trade-markets",
+              "trading/placing-orders"
             ]
           },
           {
@@ -34,14 +35,13 @@
             "pages": [
               "portfolio/overview",
               "portfolio/deposit-withdraw",
-              "portfolio/positions"
+              "portfolio/positions-and-history"
             ]
           },
           {
             "group": "Platform",
             "pages": [
-              "platform/markets",
-              "platform/rewards",
+              "platform/finding-markets",
               "platform/leaderboard"
             ]
           },
@@ -49,6 +49,7 @@
             "group": "Help",
             "pages": [
               "help/faq",
+              "help/support",
               "help/glossary"
             ]
           }
@@ -56,6 +57,14 @@
       }
     ]
   },
+  "redirects": [
+    { "source": "/trading/options-trading", "destination": "/trading/how-windows-work" },
+    { "source": "/trading/spot-trading", "destination": "/trading/live-markets" },
+    { "source": "/trading/order-types", "destination": "/trading/placing-orders" },
+    { "source": "/portfolio/positions", "destination": "/portfolio/positions-and-history" },
+    { "source": "/platform/markets", "destination": "/platform/finding-markets" },
+    { "source": "/platform/rewards", "destination": "/introduction" }
+  ],
   "footer": {
     "socials": {
       "x": "https://x.com/thetalabsgg",

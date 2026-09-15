@@ -9,3 +9,5 @@ drafts/
 # Docs-audit working files (not docs pages)
 docs-audit-request.md
 docs-audit-response.md
+docs-rebuild-request.md
+docs-rebuild-response.md

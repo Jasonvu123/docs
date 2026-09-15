@@ -1,66 +1,73 @@
 ---
-title: "Quick Start"
-description: "Get trading on Theta Labs in under 5 minutes."
+title: "Quickstart"
+description: "Go from a fresh browser to a settled first trade on updown."
 ---
 
-This guide walks you through signing in, funding your account, and placing your first options and spot trades.
+This guide takes you from signing in to watching your first window settle.
 
 <Warning>
-Trading on Theta Labs uses **real money**. When you buy an option or spot shares, the amount you spend is at risk.
+Trading on updown uses **real money**. The amount you spend on contracts is at risk.
 </Warning>
 
 <Steps>
   <Step title="Sign in">
-    On the Theta Labs landing page, click **Start Trading** and sign in with your **email**, **Google account**, or an **external wallet**. Theta Labs uses [Privy](https://privy.io) for authentication — no browser extension or seed phrase is required. An embedded wallet is created for you automatically.
-
-    After signing in for the first time, a short onboarding asks for your name (and optionally your phone number) plus a couple of quick questions about your trading background.
+    On the updown landing page, click **Start Trading**. You land on the **Live** hub. Click **Login** in the top right and sign in with your **email** or **Google** account. updown uses [Privy](https://privy.io) for authentication, so there is no browser extension or seed phrase. An embedded wallet is created for you automatically.
   </Step>
 
-  <Step title="Enable trading">
-    The first time you open your wallet, you'll be asked to complete a one-time **Enable trading** approval. This lets Theta Labs convert your deposits and place your trades instantly. Your keys stay with you — the approval is revocable at any time.
+  <Step title="Tell us about you (first time only)">
+    On the **Tell us about you** form, enter your **Name** (required) and optional **Phone**, answer the four quick dropdowns about your trading background, and click **Submit**.
+  </Step>
+
+  <Step title="Allow trading">
+    Click the **Portfolio / Cash** chip in the top bar to open the **Wallet** modal. The first time, it shows the **Enable trading** panel. Click **Allow trading**, wait for "Trading enabled", then click **Done**.
+
+    This one-time approval lets updown convert your deposits and place your trades instantly. See [Account setup](/account-setup) for what it covers.
   </Step>
 
   <Step title="Deposit USDC on Polygon">
-    Click the cash pill in the top navigation (or **Deposit** on your Portfolio page) to open the **Wallet** modal. Scan the QR code or copy your Polygon deposit address, then send **USDC on the Polygon network** from your exchange or wallet.
+    In the **Wallet** modal under **Deposit**, click **Copy Address** (or scan the QR code) and send at least **$2 of USDC on the Polygon network** to that address from your exchange or wallet.
 
-    Your deposit converts to **pUSD** — your tradeable balance — automatically. The modal shows live progress: *Deposit detected… → Finalizing… → Converting your deposit to pUSD…* Conversion typically completes in well under a couple of minutes.
+    Keep the modal open, or come back to it later. It tracks the conversion live: *Deposit detected… → Finalizing… → Converting your deposit to pUSD…* and finishes with the toast "Deposit converted to pUSD". Click **Go to Portfolio** to confirm your **Available** balance.
 
     <Warning>
-    Send **USDC on Polygon only**. Other tokens or networks are not supported.
+    Send **USDC on Polygon only**. Wrong tokens or networks may result in permanent loss. Deposits under $2 sit unconverted until you top them up.
     </Warning>
   </Step>
 
-  <Step title="Place your first options trade">
-    You land on the **Options** page by default. Pick a market card and choose **Yes Calls** or **No Calls**, then:
-
-    1. Select an expiry from the dropdown.
-    2. Tap an **Ask** price in the chain to add that strike to your ticket.
-    3. Review the payoff chart, **Max profit**, **Max loss**, and **Breakeven**.
-    4. Click **Buy for $X** — your order fills instantly at the quoted price.
-
-    Your maximum loss is the premium you paid. See [Options Trading](/trading/options-trading) for the full guide.
+  <Step title="Pick a market">
+    Click **Live** in the top bar and choose a card, for example "Bitcoin (BTC) · 15 min". The market page shows **To beat** (the price when the window opened), **Now** (the live price), and **Time left**.
   </Step>
 
-  <Step title="Or place a spot trade">
-    Switch to the **Spot** tab in the navigation to browse Polymarket markets. Open a market, pick **Yes** or **No** (the buttons show the live price in cents), enter a dollar amount or share count, and click **Buy**.
+  <Step title="Hold to buy">
+    In the ticket (the right rail on desktop, the bottom sheet on a phone) stay on **Quick Buy**. Press and hold the **$1** box under **Up** or **Down** until it fills. A **Trade executed** card confirms the fill, for example "Bought $1.00 Up @ 51¢ · Pays $1.96 if Up wins".
+  </Step>
 
-    Your positions appear on the **Portfolio** page.
+  <Step title="Watch it settle">
+    Watch **Time left** count down. When the window closes, your position reads "settling". Within about 5 minutes, **Portfolio → history** shows **Won** or **Lost**, and your **Cash** updates. There is nothing to claim.
+  </Step>
+
+  <Step title="Optional: sell back early">
+    Changed your mind before the close? Hold **Sell** on your row in the **Live Positions** panel on the market page. Your realized profit or loss is settled immediately.
   </Step>
 </Steps>
+
+<Note>
+A $1 Quick Buy on a thin quote can fill partially. The confirmation reads "Filled $X of your $Y — book was thin here". If the price moves sharply between the quote and your fill, updown rejects the order rather than filling at a much worse price. See [Placing orders](/trading/placing-orders).
+</Note>
 
 ## Where to go next
 
 <CardGroup cols={2}>
-  <Card title="Options trading" icon="chart-line" href="/trading/options-trading">
-    Yes Calls, No Calls, strikes, expiries, and how settlement works.
+  <Card title="How windows work" icon="clock" href="/trading/how-windows-work">
+    The level to beat, the tie rule, and how settlement pays.
   </Card>
-  <Card title="Spot trading" icon="arrow-right-arrow-left" href="/trading/spot-trading">
-    How YES/NO shares work and how orders are filled.
+  <Card title="Placing orders" icon="hand-pointer" href="/trading/placing-orders">
+    Quick Buy, Market orders, and selling back.
   </Card>
   <Card title="Deposits & withdrawals" icon="wallet" href="/portfolio/deposit-withdraw">
     Funding your account and withdrawing USDC to any Polygon address.
   </Card>
-  <Card title="Rewards & referrals" icon="gift" href="/platform/rewards">
-    Free-share rewards for your first deposit, streaks, and referrals.
+  <Card title="Account setup" icon="user" href="/account-setup">
+    Login, the trading approval, your wallets, and your profile.
   </Card>
 </CardGroup>

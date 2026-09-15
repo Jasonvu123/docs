@@ -1,71 +1,86 @@
 ---
-title: "Account Setup"
-description: "Sign-in, wallets, funding, and account configuration on Theta Labs."
+title: "Account setup"
+description: "Sign-in, the one-time trading approval, your wallets, and your profile on updown."
 ---
 
 ## Sign in
 
-Theta Labs uses [Privy](https://privy.io) for authentication. You can sign in with your **email address**, a **Google account**, or an **external wallet** you already own.
+updown uses [Privy](https://privy.io) for authentication. Click **Login** in the top right and sign in with your **email address** or a **Google account**. These are the only two login methods.
 
-When you sign in for the first time, Privy creates an **embedded wallet** for you automatically. This wallet is tied to your login — you don't need to manage a seed phrase or install any browser extension to get started.
-
-After your first sign-in, a short onboarding collects your display name (and optionally a phone number) along with a few quick questions about your trading experience.
+When you sign in for the first time, Privy creates an **embedded wallet** for you automatically. The wallet is tied to your login, so there is no seed phrase to manage and no browser extension to install.
 
 <Info>
-Embedded wallets are non-custodial. Theta Labs never holds your private keys — they are secured through Privy's infrastructure, and only you can authorize activity from your wallet.
+If you opened a specific market before signing in, you return to it after login.
 </Info>
 
 ---
 
-## Enable trading
+## Onboarding
 
-Before your first deposit can convert, you complete a one-time **Enable trading** approval in the Wallet modal. This authorization lets Theta Labs convert your deposits and place your trades instantly, without a signing prompt on every action.
+After your first sign-in, a short **Tell us about you** form asks for:
 
-- Your keys are never held by Theta Labs
-- The approval only works with the connected trading venues
-- You can revoke it at any time
+- **Name** (required)
+- **Phone** (optional)
+- **What kind of trader are you?**
+- **Where do you trade today?**
+- **Experience level**
+- **How'd you hear about us?**
 
----
-
-## Your wallet
-
-Your account uses one user-facing wallet on **Polygon**. You can see your addresses in two places:
-
-- The **Wallet** modal (click the cash pill in the top navigation, or **Deposit** on the Portfolio page) — shows your deposit address with a QR code and copy button.
-- Your **Profile** page — lists your **Deposit wallet (Polygon)** and **Signing wallet (Polygon)** addresses, each with copy buttons and Polygonscan links.
+Click **Submit** to finish. If you arrived through a friend's referral link, the referral is attributed to your account at this step.
 
 ---
 
-## Funding your account
+## Allow trading
 
-Funding is fully automatic — there is no transfer step:
+Before your first deposit can convert, you complete a one-time approval. Open the **Wallet** modal (click the **Portfolio / Cash** chip in the top bar, or **Deposit** on the Portfolio page). The first time, it shows the **Enable trading** panel. Click **Allow trading**.
 
-1. Open the **Wallet** modal and copy your Polygon deposit address (starts with `0x`).
-2. From an exchange or another wallet, send **USDC on the Polygon network** to that address.
-3. The app detects the deposit and converts it to **pUSD**, your tradeable balance. The modal shows staged progress: *Deposit detected… → Finalizing… → Converting your deposit to pUSD…*
-4. Your **Available** balance updates when conversion completes — typically well under a couple of minutes. Your very first deposit includes a one-time wallet setup that adds a few extra seconds.
+The panel reads "Approving trading access…" while it works. You can close the modal, and the approval keeps going in the background. When it finishes, the panel reads "Trading enabled" and "You're all set — deposit funds and start trading." Click **Done**.
 
-<Warning>
-Send **USDC on the Polygon network only**. Sending other tokens, or USDC on a different network, is not supported and funds may not be recoverable — contact support immediately if you've sent to the wrong network (see the [FAQ](/help/faq) for support channels).
-</Warning>
+This approval lets updown convert your deposits to pUSD and place your trades instantly, without asking you to sign every transaction. Your keys stay in your Privy embedded wallet.
+
+---
+
+## Your wallets
+
+Your account uses one user-facing chain, **Polygon**, with two addresses. Both are listed in the **Wallet** card on your Profile page, each with a copy button and a "View on Polygonscan" link:
+
+| Address | What it is |
+|---------|-----------|
+| **Signing wallet (Polygon)** | Your Privy embedded wallet. This is the address you **send USDC to**. It is also the address shown in the Wallet modal's deposit card. |
+| **Deposit wallet (Polygon)** | The wallet that **holds your pUSD** trading balance. |
+
+See [Deposits & withdrawals](/portfolio/deposit-withdraw) for the funding flow.
 
 ---
 
 ## Your balance
 
-Your **Available** balance is the pUSD cash ready to deploy in new trades. It's shown in the cash pill in the top navigation and in the **Balance** card on your Portfolio page, alongside:
+Your trading balance is **pUSD**. USDC you deposit converts to pUSD automatically, and withdrawals convert back to native USDC. You see it in three places:
 
-- **In position** — the current market value of your open spot and options positions
-- **Total traded** — your lifetime trading volume
+- The **Portfolio / Cash** chip in the top bar. **Cash** is the pUSD free to trade or withdraw. **Portfolio** is cash plus the live value of your open positions.
+- The **Balance** card on the Portfolio page, with **Available**, **In position**, and **Total traded**.
+- The **Wallet** modal's **Available** line.
 
-Available decreases when you open a position and increases when you sell, redeem winning shares, or an option settles in the money.
+See [Portfolio overview](/portfolio/overview) for how each figure is calculated.
 
 ---
 
 ## Profile
 
-Open the user menu (top-right avatar) → **Profile** to:
+Open the user menu (your avatar, top right) and choose **Profile**. The page shows:
 
-- Edit your **name** and **phone number**
-- View your wallet addresses with Polygonscan links
-- Sign out
+- **Header** — your generated avatar, name, email, and "Member since" date.
+- **Account** — click **Edit** to change your **Name** or **Phone**, then **Save**. Your email is your login identity and cannot be edited here.
+- **Wallet** — your pUSD **Balance** and your two Polygon addresses.
+- **Sign out**
+
+## User menu
+
+The avatar menu also offers:
+
+| Item | What it does |
+|------|-------------|
+| **Profile** | Opens your Profile page. |
+| **Referral** | Opens your referral link page. |
+| **Light mode** / **Dark mode** | Switches the app theme. Dark is the default. |
+| **Log out** | Signs you out. |
