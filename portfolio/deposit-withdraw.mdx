@@ -1,56 +1,68 @@
 ---
-title: "Deposits & withdrawals"
-description: "Fund your account with USDC on Polygon and withdraw native USDC to any Polygon address."
+title: "Deposit & withdraw"
+description: "Fund your account with USDG on Robinhood Chain, USDC on Polygon, or a card or bank, and withdraw USDG any time."
 ---
 
-updown runs on a single balance. Deposit **USDC on Polygon** and it converts automatically to **pUSD**, your trading balance. Withdraw native USDC to any Polygon address whenever you like. There are no fees on either side and gas is sponsored.
+Your cash is **USDG** in your own wallet on **Robinhood Chain**. You can deposit USDG directly, send USDC on Polygon and have it routed in automatically, or pay by card or bank. Withdrawals send USDG to any Robinhood Chain address. Gas is sponsored everywhere.
 
-The **Deposit** and **Withdraw** buttons live on the Balance card of your Portfolio page. The **Portfolio / Cash** chip in the top bar also opens the deposit view.
+Click **Cash** in the top bar to deposit (on a phone, **Deposit** on Home). The **Withdraw** and **Deposit** buttons also sit on your Portfolio value card.
 
 <Warning>
-Send **USDC on the Polygon network only**. The deposit modal warns: "Wrong tokens or networks may result in permanent loss." There is no in-app recovery. If it happens, contact [support](/help/support) with the transaction hash.
+Send only the asset shown, on the network shown. Other tokens or networks may result in permanent loss, and there is no in-app recovery. If it happens, contact [support](/help/support) with the transaction hash.
 </Warning>
 
 <Tabs>
-  <Tab title="Deposit">
+  <Tab title="Deposit with crypto">
     <Steps>
-      <Step title="Open the Wallet modal">
-        Click the **Portfolio / Cash** chip, or **Deposit** on your Portfolio page. The first time, complete the one-time **Allow trading** approval and click **Done**. See [Account setup](/account-setup#allow-trading).
+      <Step title="Choose Crypto">
+        In the **Deposit with** dialog, click **Crypto** ("Transfer USDC from a crypto wallet"). The first time, complete the **Allow trading** approval and click **Continue**. See [Account & profile](/account-and-profile#allow-trading).
       </Step>
-      <Step title="Copy your address">
-        Under **Deposit**, the card labelled "USDC on Polygon" shows a QR code and your address. Click **Copy Address**.
+      <Step title="Pick a network">
+        The dropdown offers **Robinhood Chain** (default) and **Polygon**. Arbitrum, Base, Solana, BNB Chain, and Ethereum are listed as **Soon**.
       </Step>
-      <Step title="Send at least $2 of USDC on Polygon">
-        From your exchange or wallet, send USDC to that address on the **Polygon** network. The minimum is **$2**.
+      <Step title="Send">
+        The dialog reads "Send USDG on the Robinhood Chain network to this address." or "Send USDC on the Polygon network to this address.", with a QR code and the address to copy. The same address works on both chains.
+
+        | Network | Asset | Minimum |
+        |---------|-------|---------|
+        | Robinhood Chain | USDG | $0.50 |
+        | Polygon | USDC | $2 |
+
+        Polygon deposits are routed into your Robinhood Chain balance automatically. The dialog says so: "We route Polygon USDC into your Robinhood Chain balance automatically."
       </Step>
-      <Step title="Watch it convert">
-        The modal tracks progress live: *Deposit detected… → Finalizing… → Converting your deposit to pUSD…* and finishes with "Deposit converted to pUSD". You can keep the modal open or come back later. Your very first deposit also sets up your deposit wallet on-chain, which adds a few seconds.
-      </Step>
-      <Step title="Confirm your balance">
-        Click **Go to Portfolio**. The amount appears in **Available**.
+      <Step title="Watch it arrive">
+        USDG on Robinhood Chain lands in your wallet and counts at once. A Polygon deposit shows "Detected $X USDC — adding to your balance…", then "Adding your deposit to your balance…", and finishes with the toast **"Deposit added to your balance"**. You can close the dialog and come back.
       </Step>
     </Steps>
 
     <Note>
-    Sent less than $2? The modal explains: "We received $X, but deposits under $2 can't be converted. Send at least $Y more USDC and it all converts automatically — your funds are safe meanwhile."
+    Sent less than the minimum on Polygon? The dialog reads "We received $X — send $Y more to reach the $2 minimum." Your funds are safe in the meantime. If routing fails: "Deposit failed to convert — funds were not lost. Try again."
     </Note>
   </Tab>
 
+  <Tab title="Card or bank">
+    Click **Card or bank** ("Debit, credit, Apple Pay or US bank"). A Stripe checkout opens. Identity checks, if any, are Stripe's.
+
+    The purchase buys USDC that is routed into your balance automatically. While it arrives, the dialog reads "Waiting for your USDC" and then "Adding to your balance…". The minimum is **$2**.
+
+    > Card and Apple Pay purchases usually land within a few minutes. Bank transfers can take a few days. You can close this — we'll add it to your balance when it arrives.
+  </Tab>
+
   <Tab title="Withdraw">
-    Withdrawals send **native USDC on Polygon** from your balance to any address you choose. The modal describes it as "Gas-free, usually instant."
+    Withdrawals send **USDG on Robinhood Chain** to any address you choose. The dialog describes it as "Gas-free, usually instant."
 
     <Steps>
-      <Step title="Open the Withdraw modal">
-        Click **Withdraw** on your Portfolio page.
+      <Step title="Open the Withdraw dialog">
+        Click **Withdraw** on your Portfolio value card. It shows your **Available** balance.
       </Step>
       <Step title="Enter the recipient">
-        Paste the destination in **Recipient address (Polygon)**. It must be a valid 0x address.
+        Paste the destination in **Recipient address (Robinhood Chain)**. It must be a valid 0x address.
       </Step>
       <Step title="Enter the amount">
-        Type an amount in **Amount (USDC)** or click **MAX**. The minimum is **$2**. The modal shows **You receive** as "≈ $X USDC".
+        Type an amount in **Amount (USDG)** or click **MAX**. The minimum is **$2**. The dialog shows **You receive** as "≈ $X USDG".
       </Step>
       <Step title="Confirm">
-        Click **Withdraw**. The success screen reads "Withdrawal confirmed" (or "Withdrawal submitted" while the transaction mines) with a **View transaction →** link to Polygonscan. Choose **Withdraw again** or **Done**.
+        Click **Withdraw**. The success screen reads **"Withdrawal confirmed"** with a **View transaction →** link to the Robinhood Chain explorer, and offers **Withdraw again** or **Done**.
       </Step>
     </Steps>
 
@@ -59,7 +71,7 @@ Send **USDC on the Polygon network only**. The deposit modal warns: "Wrong token
     </Warning>
 
     <Note>
-    Money committed to open windows cannot be withdrawn until those windows settle. The modal's **Available** shows your full pUSD balance, so a withdrawal that dips into committed funds is refused with a message like "Amount $X exceeds your available $Y ($Z is committed to open interval positions)."
+    Cash reserved by open interval windows cannot be withdrawn until those windows settle. The dialog's **Available** and **MAX** show your full wallet, so a withdrawal that dips into reserved cash is refused with "Amount $X exceeds your available $Y ($Z is committed to open positions)." Options reserve nothing, because the premium has already left your wallet.
     </Note>
   </Tab>
 </Tabs>
@@ -68,12 +80,12 @@ Send **USDC on the Polygon network only**. The deposit modal warns: "Wrong token
 
 | Direction | Asset | Network | Minimum | Fee |
 |-----------|-------|---------|---------|-----|
-| Deposit | USDC | Polygon | $2 | None |
-| Held as | pUSD (converted automatically) | — | — | — |
-| Withdraw | Native USDC | Polygon | $2 | None, gas sponsored |
-
-Withdrawals appear in **Portfolio → history** as "Withdrawal to 0x…".
+| Deposit | USDG | Robinhood Chain | $0.50 | None |
+| Deposit | USDC | Polygon, routed automatically | $2 | A small bridge cut on the way in |
+| Deposit | Card, Apple Pay, or US bank | via Stripe, routed automatically | $2 | A small bridge cut on the way in |
+| Held as | USDG | Robinhood Chain | — | — |
+| Withdraw | USDG | Robinhood Chain | $2 | None, gas sponsored |
 
 <Info>
-Restricted accounts keep the ability to withdraw. See [Support](/help/support#restricted-accounts).
+If your account holds a balance from before the move to Robinhood Chain, the Withdraw dialog shows a link to withdraw it as USDC on Polygon. Restricted accounts keep the ability to withdraw. See [Support](/help/support#restricted-accounts).
 </Info>

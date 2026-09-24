@@ -1,0 +1,110 @@
+---
+title: "How windows work"
+description: "Interval markets: windows, the level to beat, Up and Down, the $1 payout, and settlement."
+---
+
+An **interval market** tracks one live price and cuts time into **windows**. Every window is a fresh Up-or-Down question: will the price close the window above where it opened?
+
+## Markets and windows
+
+updown runs interval markets on:
+
+- **Stocks:** AAPL, NVDA, SPCX, TSLA, GOOGL, PLTR, META, HOOD, SPY, COIN
+- **Crypto:** BTC, ETH, SOL, DOGE, HYPE
+
+Each subject runs three markets, one per cadence:
+
+| Cadence | Grid |
+|---------|------|
+| **5 min** | Windows start every 5 minutes on the UTC clock |
+| **15 min** | Windows start on the quarter hour (:00, :15, :30, :45 UTC) |
+| **60 min** | Windows start on the UTC hour |
+
+Windows roll continuously. When one closes, the next has already opened. The price at the instant a window opens becomes the level **to beat**.
+
+## Up and Down
+
+- **Up** wins if the price closes the window **strictly above** the level to beat.
+- **Down** wins if it closes **at or below** it.
+
+<Note>
+**Tie rule.** An unchanged close settles **Down**. The ticket's ⓘ note puts it plainly: "If the price is unchanged, it settles as Down. Up needs a real move."
+</Note>
+
+## Contracts and payout
+
+You buy **contracts** on a side, priced from **1¢ to 99¢**. The price is the market's implied chance that the side wins. At settlement:
+
+```
+Winning contract  →  $1.00
+Losing contract   →  $0.00
+```
+
+Every position is fully collateralized when you enter it. An Up contract at p¢ and a Down contract at 100 − p¢ together set aside exactly $1.00. You can never lose more than you paid, and you can never be short or owe money.
+
+<Warning>
+**Options are different.** An option contract on updown is one stock token and pays by distance past the strike. See [How options work](/options/how-options-work#how-options-differ-from-interval-markets).
+</Warning>
+
+### Worked example
+
+> **Apple (AAPL)**, 15-minute window 2:00 – 2:15 PM. **To beat: $325.40.**
+>
+> You tap **$5** on **Up** at **51¢**, which buys 9.80 contracts.
+>
+> - Close at **$325.62** → Up wins → you receive **$9.80**. Profit $4.80.
+> - Close at **$325.40** or lower → Down wins → your **$5** is gone.
+
+### Fees
+
+Interval trades carry a small **taker fee** on every buy and sell, never on settlement. It is built into the price you see and has no separate line. It is largest near 50¢ and shrinks toward the extremes. See [Placing interval orders](/interval/placing-orders).
+
+## Reading the window header
+
+| Element | What it shows |
+|---------|--------------|
+| **Window line** | The date and the open and close times, in your local time |
+| **LIVE** | The window is trading |
+| **To beat** | The price when the window opened |
+| **Now** | The live price, with the move since the open ("+$2.00 (+0.60%)") |
+| **Time left** | Countdown to the close. White, then amber under half the window, then red under a fifth |
+
+After the close the header reads "Ended Sep 23, 2:15 PM EDT".
+
+## Settlement
+
+Settlement is automatic. There is no claim step.
+
+1. When the window closes, updown compares the closing price with the level to beat, using the same feed that powers the chart.
+2. Strictly higher settles **Up**. Anything else settles **Down**.
+3. Winning contracts are paid **$1.00 each**. One net transfer per window moves the difference between your payout and what you staked in or out of your wallet, in USDG.
+
+The settlement job runs **every minute**, so a closed window is usually paid within a minute or two. Until then your position reads "settling" or "awaiting settle". Afterwards, your activity shows **Won**, **Lost**, or **Settled** with "· paid $1 each", "· settled worthless", or "· nothing owed either way". See [Positions and history](/portfolio/positions-and-history).
+
+Every settled window has its own page with **Result** ("Up won" or "Down won"), **Open**, **Close**, and the full chart with the level to beat marked "Target". Open it from the **Past** dropdown on the market page or from an activity row.
+
+### Settlement rules on every market page
+
+Each market page has a **Settlement rules** section. It reads, for a 15-minute Apple market:
+
+> A new window opens every 15 minutes. Its opening price is AAPL's price at the moment the window opens.
+>
+> Up wins only if AAPL's price closes strictly above that opening price. Down wins if it closes at or below it — so a window that finishes exactly unchanged settles Down.
+>
+> Each winning contract pays $1.00 and each losing contract expires at zero. Every position is fully collateralized when you enter, so an Up at p cents and its matching Down at 100 minus p cents together set aside exactly $1.00.
+
+## Market hours
+
+| Market | Hours |
+|--------|-------|
+| **Crypto** | 24/7 |
+| **Stocks** | 24/5: **Sunday 8:00 PM to Friday 8:00 PM ET** |
+| **Stocks at the weekend** | AAPL, NVDA, SPCX, TSLA, GOOGL, META, HOOD, and COIN **stay open** from Friday 8:00 PM to Sunday 8:00 PM ET, priced off a 24/7 perpetual market that tracks where traders expect the stock to reopen. PLTR and SPY close for the weekend. |
+
+Weekend stock prices are not exchange quotes and can differ from the price when trading resumes. Weekend windows open and settle entirely on that feed.
+
+While a stock market is closed, its cards leave the hub and its page reads "Market closed — PLTR trades Sunday 8:00 PM – Friday 8:00 PM ET." with a **Back to markets** button. A phase pill on stock cards reads **Market hours**, **Extended hours**, or **Overnight**.
+
+<Note>
+The settled price comes from the minute-level history feed at the close, which can differ by a tick from the last print you saw on the tape. Both the chart and settlement use the same feed.
+</Note>

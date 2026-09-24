@@ -3,110 +3,138 @@ title: "FAQ"
 description: "Frequently asked questions about updown."
 ---
 
-## Trading
+## Options
 
 <AccordionGroup>
-  <Accordion title="What am I actually betting on?">
-    Whether a live number closes a window above where it opened. The number can be a stock or crypto price, a team's live win odds, or a prediction-market outcome's chance. You buy **Up** or **Down** contracts, and each winning contract pays $1.00. See [How windows work](/trading/how-windows-work).
+  <Accordion title="When do options expire and settle?">
+    At the 4:00 PM ET close (1:00 PM on half-days), today or the next session. Two expiries are offered at a time. The payout lands in your wallet within minutes after the close.
   </Accordion>
 
-  <Accordion title="What is the most I can lose?">
-    What you paid for your contracts. There is no leverage, shorting, or margin. Every position is fully collateralized when you enter it.
+  <Accordion title="What price do options settle at?">
+    The average on-chain token price over the last 5 minutes before the close, checked against the real stock's price. If no price can be established within 6 hours, the premium is refunded.
+  </Accordion>
+
+  <Accordion title="Can I sell an option before expiry?">
+    Yes, at the current bid, until 15 minutes before its expiry. Tap **Sell $X** in the stock page's Positions table. See [Positions & settlement](/options/positions-and-settlement).
+  </Accordion>
+
+  <Accordion title="Can I write or sell options to open?">
+    Not yet. The **Neutral** outlook and selling to open are labelled "Coming soon".
+  </Accordion>
+
+  <Accordion title="What's the most I can spend on one options order?">
+    $100 of premium per buy. The most you can lose on it is that premium.
+  </Accordion>
+
+  <Accordion title="Why can't I buy options for this stock on my phone?">
+    Phone buying is available on the nine featured stocks: AAPL, NVDA, TSLA, GOOGL, META, PLTR, COIN, SPCX, and SPY. Other stocks can be bought from a desktop or tablet.
+  </Accordion>
+
+  <Accordion title="Why does the options price differ from the stock's exchange price?">
+    Options are priced and settled against the stock's token on Robinhood Chain, which trades in on-chain pools around the clock. Its price can differ from the exchange quote, and tokens tagged "thin" are priced by shallow pools.
+  </Accordion>
+</AccordionGroup>
+
+## Interval markets
+
+<AccordionGroup>
+  <Accordion title="What am I trading on?">
+    Whether a stock or crypto price closes a 5-, 15-, or 60-minute window above where it opened. You buy **Up** or **Down** contracts, and each winning contract pays $1.00. See [How windows work](/interval/how-windows-work).
   </Accordion>
 
   <Accordion title="What happens if the price finishes exactly where it started?">
     It settles **Down**. As the ticket puts it: "If the price is unchanged, it settles as Down. Up needs a real move."
   </Accordion>
 
-  <Accordion title="Is there a trading fee?">
-    No. There is no trading fee today. The only cost is the spread between updown's bid and ask, which is at least 2¢ and widens near 50/50 as a window runs out of time. The "win" and **Max payout** figures in the ticket already include it.
-  </Accordion>
-
-  <Accordion title="Who is on the other side of my trade?">
-    updown's treasury quotes both sides of every window. It caps its exposure at roughly 20 contracts per side per window, so large orders can fill partially.
-  </Accordion>
-
   <Accordion title="Why was my order rejected with &quot;Price moved to …&quot;?">
-    The quote changed between what you saw and the fill. updown refuses fills that are more than about 30% plus 3¢ worse than the price shown. Try again at the new price.
+    The quote changed between what you saw and the fill. updown refuses fills more than about 30% plus 3¢ worse than the price shown. Try again at the new price.
   </Accordion>
 
   <Accordion title="Can I place a limit order?">
-    Not yet. The Limit form is visible, but its button reads "Limit orders open with the order book".
+    Not yet. The Limit form is visible in the ticket, but its button is disabled until limit orders launch.
   </Accordion>
 
   <Accordion title="Can I sell before the window closes?">
-    Yes. Hold **Sell** on your row in **Live Positions**, or use **Market → Sell** in the ticket. The realized difference is paid or charged immediately. See [Placing orders](/trading/placing-orders#selling-back).
+    Yes. Tap **Sell** on your row in **Live Positions**, or use **Market → Sell** in the ticket. The realized difference is settled immediately.
   </Accordion>
 
-  <Accordion title="What is the difference between Live and Trade?">
-    **Live** runs 15-minute windows on stocks, crypto, and in-play sports. **Trade** runs one window per day, week, or month on stocks, crypto, and prediction-market outcomes. The ticket and the rules are the same.
+  <Accordion title="When do stocks trade?">
+    Stock interval markets run 24/5, from Sunday 8:00 PM to Friday 8:00 PM ET. Eight stocks also stay open over the weekend on a 24/7 perpetual price; PLTR and SPY close. Crypto trades 24/7. See [market hours](/interval/how-windows-work#market-hours).
   </Accordion>
 
-  <Accordion title="Why can't I trade Apple right now?">
-    Stock markets run only on weekdays from 4:00 AM to 8:00 PM ET. Outside those hours the page reads "Market closed — stock markets trade weekdays 4:00 AM – 8:00 PM ET." Crypto markets stay open 24/7.
-  </Accordion>
-
-  <Accordion title="The game ended in the middle of a window. What happens?">
-    The odds freeze and trading pauses ("Trading paused — game over"). The window settles at the frozen odds and payouts follow shortly. No new window opens after the final one.
+  <Accordion title="What is Multi-buy?">
+    A way to place up to 20 interval buys in one order. Each pick is its own independent buy, not a parlay. See [Multi-buy](/interval/multi-buy).
   </Accordion>
 </AccordionGroup>
 
-## Settlement and balances
+## Fees, balances, and settlement
 
 <AccordionGroup>
+  <Accordion title="What does a trade cost?">
+    Options carry no fee. Interval trades carry a small taker fee on every buy and sell, built into the price you see, with no separate line.
+  </Accordion>
+
   <Accordion title="When do I get paid?">
-    Automatically. A settlement pass runs every 5 minutes, and the page triggers one when a window rolls. Your history shows **Won** or **Lost** and your **Cash** updates. Until then the position reads "settling" or "awaiting settle". There is nothing to claim.
+    Automatically. Interval windows are settled by a job that runs every minute. Options are settled after the close by a job that runs every 5 minutes. Your activity shows **Won** or **Lost** and your cash updates. There is nothing to claim.
   </Accordion>
 
-  <Accordion title="What is the difference between Portfolio and Cash?">
-    **Cash** is pUSD not tied up in open windows. **Portfolio** adds the live value of your open positions. See [Portfolio overview](/portfolio/overview).
+  <Accordion title="What is the difference between Cash, Available cash, and Portfolio?">
+    **Cash** is the USDG in your wallet. **Available cash** is Cash minus what your open interval windows reserve. **Portfolio** adds the live value of your open positions. See [Portfolio](/portfolio/overview#the-balance-model).
   </Accordion>
 
-  <Accordion title="Why does my position show a different value on the market page and on Portfolio?">
-    The market page marks at what updown would pay you right now (its bid). Portfolio marks at the midpoint. The two converge when you sell or the window settles.
+  <Accordion title="Why does my interval position show a different value on the market page and on Portfolio?">
+    The market page marks at the current bid. Portfolio marks at the midpoint. The two converge when you sell or the window settles.
   </Accordion>
 
-  <Accordion title="Why is Total traded bigger than what I've spent?">
-    **Total traded** is face-value volume: $1 per contract across every buy and sell, not the dollars you spent.
+  <Accordion title="Do options count for the Tournament?">
+    Yes. The Tournament ranks your realized P&L across both options and interval markets. See [Tournament](/platform/tournament).
   </Accordion>
 </AccordionGroup>
 
 ## Deposits and withdrawals
 
 <AccordionGroup>
-  <Accordion title="How do I deposit?">
-    Open the **Wallet** modal from the **Portfolio / Cash** chip, click **Allow trading** once, then send at least $2 of USDC on Polygon to the address shown. It converts to pUSD automatically. Keep the page open or come back later. See [Deposits & withdrawals](/portfolio/deposit-withdraw).
+  <Accordion title="Which networks can I deposit from?">
+    USDG on Robinhood Chain (minimum $0.50), or USDC on Polygon (minimum $2), which is routed into your balance automatically. Other chains are listed as "Soon". See [Deposit & withdraw](/portfolio/deposit-withdraw).
   </Accordion>
 
-  <Accordion title="I sent less than $2. Is it lost?">
-    No. The modal explains that deposits under $2 can't be converted and tells you how much more to send. Once the total reaches $2 it all converts, and your funds are safe in the meantime.
+  <Accordion title="Can I pay by card?">
+    Yes. Choose **Card or bank** in the deposit dialog to pay with a debit or credit card, Apple Pay, or a US bank account. Card purchases usually land within a few minutes; bank transfers can take a few days.
   </Accordion>
 
   <Accordion title="I sent the wrong token or network.">
-    The deposit modal warns that "Wrong tokens or networks may result in permanent loss." There is no in-app recovery. Contact [support](/help/support) with the transaction hash.
+    Only USDG on Robinhood Chain and USDC on Polygon are supported. Other tokens or networks may result in permanent loss, and there is no in-app recovery. Contact [support](/help/support) with the transaction hash.
   </Accordion>
 
   <Accordion title="How do I withdraw, and is there a fee?">
-    Click **Withdraw** on your Portfolio page, paste any Polygon address, and enter an amount of at least $2. You receive native USDC on Polygon, gas is sponsored, and it usually arrives instantly. Money in open windows can't be withdrawn until those windows settle.
+    Click **Withdraw** on your Portfolio page, paste a Robinhood Chain address, and enter at least $2. You receive USDG, gas is sponsored, and it usually arrives instantly. Cash reserved by open interval windows can't be withdrawn until they settle.
   </Accordion>
 
   <Accordion title="Do I need a crypto wallet to sign up?">
-    No. updown uses embedded wallets powered by Privy. Sign in with your email or Google account and a wallet is created for you. You never install a browser extension or manage a seed phrase.
+    No. Sign in with your email or Google account and an embedded wallet is created for you. You never install a browser extension or manage a seed phrase.
   </Accordion>
 </AccordionGroup>
 
-## Account and eligibility
+## Account, profile, and eligibility
 
 <AccordionGroup>
+  <Accordion title="Who can see my profile?">
+    Anyone, at `/u/your-username`. Hide **Wallet**, **Positions**, or **Activity** in **Edit profile → Visibility**. Your email, wallet addresses, withdrawals, and options positions are never shown. See [Profiles & social](/platform/profiles-and-social).
+  </Accordion>
+
+  <Accordion title="What is a take?">
+    A note of up to 280 characters, or a GIF, you can post with any trade. It appears on the feed and on your profile. Long-shot trades get a "🔥 Hot take" badge.
+  </Accordion>
+
   <Accordion title="Is updown available in my country?">
     Trading is not available in every region. If you are in a restricted region, a globe icon appears in the top bar with the tooltip "Trading is unavailable in your region". If you are unsure about your eligibility, contact [support](/help/support).
   </Accordion>
 
   <Accordion title="My account says &quot;Account flagged&quot;. What now?">
-    Trading, deposits, and rewards are restricted, but as the notice says, "Your balance is not affected — you can still withdraw at any time." If you believe it is a mistake, contact support on Discord or by email. See [Support](/help/support#restricted-accounts).
+    Trading, deposits, and rewards are restricted, but "Your balance is not affected — you can still withdraw at any time." If you believe it is a mistake, contact support. See [Support](/help/support#restricted-accounts).
   </Accordion>
 
   <Accordion title="How do I contact support?">
-    Click **Contact us** in the bottom bar to send a message from the app, or use email, X, or Discord. See [Support](/help/support).
+    Click **Contact us** in the bottom bar (or ☰ → **More** on a phone) to send a message from the app, or use email, X, or Discord. See [Support](/help/support).
   </Accordion>
 </AccordionGroup>

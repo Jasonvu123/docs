@@ -1,0 +1,67 @@
+---
+title: "Account & profile"
+description: "Signing in, the one-time trading approval, your identity, your wallet, and what other people can see."
+---
+
+## Sign in
+
+updown uses [Privy](https://privy.io) for authentication. Click **Login** and sign in with your **email address** or a **Google account**. These are the only two methods. The Privy popup opens in place, so you stay on the page you were on.
+
+Your account is created automatically on first sign-in, with:
+
+- a generated **username** made of a color, an adjective, and a shape, such as "BlueAngrySquare"
+- a generated **icon**: a shape on a colored disc
+- an embedded **wallet** on Robinhood Chain that holds your cash
+
+<Info>
+Sign up with your regular, permanent email address. Temporary addresses and dot-alias variants of an address are refused.
+</Info>
+
+---
+
+## Allow trading
+
+Before your first deposit, you complete a one-time approval. It appears inside the deposit dialog until it is granted:
+
+> **Enable trading** — One approval. After that, trades go through with no signing.
+> Your keys stay yours · Only the trades you place · Revoke anytime
+
+Click **Allow trading**. The panel reads "Enabling trading — A few seconds. You can close this, it keeps going." When it finishes, it reads "Trading enabled — Deposit to trade." Click **Continue**.
+
+The approval lets updown move funds for the trades you place, settle your windows and options, and route deposits into your balance, without a signature for every action. Your keys stay in your Privy embedded wallet.
+
+---
+
+## Your profile
+
+Your **Portfolio** page is also your profile. Open it from **Portfolio** in the top bar or from your avatar menu → **Profile**. Click **Edit profile** to change:
+
+| Field | Details |
+|-------|---------|
+| **Username** | 3–24 letters, numbers, or underscores. Must be unique. The dialog shows "Checking…", "That username is taken.", or "Available". |
+| **Email** | Read-only. It is your login identity. |
+| **X account** | Optional. Paste a handle or profile URL, and an X icon next to your name links to it. |
+| **Icon** | **Shuffle**, choose one of 26 colors or **Custom**, set the **Background** disc color, pick one of 16 shapes, and drag the knob to rotate it. |
+| **Visibility** | What other people see on your profile: **Wallet** (balance, portfolio value, and chart), **Positions** (open positions), and **Activity** (trade history). Each is **Public** or **Hidden**. Hidden sections are still visible to you. |
+
+Click **Save**. The toast "Profile updated" confirms it.
+
+Your public profile lives at `/u/your-username`. Your email and wallet addresses are never shown to others. See [Profiles & social](/platform/profiles-and-social).
+
+---
+
+## Your wallet
+
+Your cash is **USDG** in your own wallet on **Robinhood Chain**. You can see it in three places:
+
+- **Cash** in the top bar. Click it to deposit.
+- **Available cash** on the Portfolio value card, with "$X in positions" beneath it.
+- **Wallet** in the options order panel.
+
+The wallet icon on your Portfolio page (tooltip "Wallet addresses") opens a dialog listing your wallet addresses. See [Deposit & withdraw](/portfolio/deposit-withdraw) for the funding flow and [Portfolio](/portfolio/overview) for how each figure is calculated.
+
+---
+
+## User menu and theme
+
+Your avatar in the top right opens a menu with **Profile**, **Light mode** / **Dark mode**, and **Log out**. Dark is the default theme. You can also sign out with the sign-out icon on your Portfolio page.

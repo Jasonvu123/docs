@@ -1,74 +1,50 @@
 ---
-title: "Portfolio overview"
-description: "Read the Portfolio page and the Portfolio / Cash chip, and understand how each balance is calculated."
+title: "Portfolio"
+description: "Your cash, positions, stats, and value chart. The Portfolio page is also your profile."
 ---
 
-Click **Portfolio** in the top bar. The page is built around two cards, **Balance** and **Portfolio value**, with your positions and history below.
+Click **Portfolio** in the top bar, or your avatar → **Profile**. The page is your balance sheet and your public profile in one.
 
-## The Portfolio / Cash chip
+## Cash and Portfolio in the top bar
 
-The chip in the top bar shows two numbers at all times:
+Two figures are always visible when you are signed in:
 
-- **Cash** — pUSD available to trade or withdraw.
-- **Portfolio** — cash plus the live value of your open positions.
+- **Cash** — the USDG in your wallet. Tooltip "Cash = available to trade · click to deposit". Click it to open the deposit dialog.
+- **Portfolio** — cash plus the live value of your open positions. Tooltip "Portfolio = cash + open positions". Click it to open this page.
 
-Its tooltip reads "Portfolio = cash + open positions · Cash = available to trade". Click the chip to open the **Wallet** modal.
+Both refresh every 30 seconds.
 
-## Balance card
+## The page, top to bottom
 
-The headline figure is your total **Balance**. Below it:
+1. **Header** — your icon, name, X link, and "@username"; stats **Volume**, **Realized P&L**, and **Rank** (your Tournament position, or "—"); **Following** and **Followers** counts; **Edit profile**, the wallet icon, and the sign-out icon; and a meta line with your trade count, "Joined Sep 2026", and your email (visible only to you).
+2. **Value card** — your total value, a change line such as "+$12.40 (+3.1%) 7d", range pills **1D / 1W / 1M / 1Y / ALL** (default 1W), then **Available cash** with "$X in positions" beneath, and the **Withdraw** and **Deposit** buttons. Hover the chart for a point-in-time value. With too little data it reads "Not enough history to chart yet".
+3. **Your positions** — a segmented control **Open** (count) / **Orders** (count). See [Positions and history](/portfolio/positions-and-history).
+4. **Your top take**, if you have posted one.
+5. **Activity** — the trade history table.
 
-| Cell | What it means |
-|------|--------------|
-| **Available** | pUSD you can spend or withdraw now: your balance minus the cost of contracts still held in open windows. |
-| **In position** | The live value of everything you hold in open windows, marked at the current midpoint. |
-| **Total traded** | Face-value volume: **$1 per contract** across every buy and sell. It is not the money you have spent. |
+## The balance model
 
-The **Deposit** and **Withdraw** buttons sit on this card. See [Deposits & withdrawals](/portfolio/deposit-withdraw).
+| Figure | Where | What it is |
+|--------|-------|-----------|
+| **Cash** | Top bar | USDG in your wallet |
+| **Portfolio** | Top bar | Cash + open interval positions + open options, both at the current bid |
+| **Available cash** | Value card | Cash minus the cost reserved by open interval positions, including windows that have closed but not yet settled |
+| **$X in positions** | Value card | Open interval positions at the midpoint (at cost while settling) + open options at the bid (at cost when unquoted) |
+| **Total** | Value card headline | Available cash + in positions |
+| **Buying power** | Interval market page | Available cash |
+| **Wallet** | Options order panel | Cash |
+| **Volume** | Header | Interval: $1 per contract over every buy and sell. Options: contracts × the stock price at purchase, counted again on a sale. |
+| **Realized P&L** | Header | Interval and options combined |
 
-### What moves Available
+### How each product moves your cash
 
-| Action | Effect |
-|--------|--------|
-| Buy | Minus the cost, held as exposure until the window settles. |
-| Sell back | Realized profit or loss applied immediately; the cost basis is released. |
-| Window settles | Plus $1 per winning contract, minus the held cost, applied once per window. |
-| Deposit | Plus the converted amount. |
-| Withdraw | Minus the amount. |
+- **Interval buys move no money when placed.** The cost is reserved from your available cash. When the window settles, a loss is collected from your wallet and a win is paid in, as one net transfer. Selling back mid-window settles the realized difference immediately.
+- **Option buys take the premium from your wallet immediately** and reserve nothing. Sales and settlement payouts arrive in the wallet.
 
 <Warning>
-Money in open windows is neither spendable nor withdrawable until those windows settle. The market page calls the spendable figure **Buying power**.
+Cash reserved by open interval windows cannot be spent on new interval trades or withdrawn until those windows settle. The top-bar **Cash** figure shows your full wallet, so it can be higher than **Available cash**.
 </Warning>
 
-## Portfolio value card
+## Your public profile
 
-The card charts your total value over time:
-
-- **Ranges:** 1D, 1W, 1M, 1Y, ALL. The default is **1W**.
-- **Change line:** the signed change and percentage over the range, for example "+$12.40 (+3.1%) Past week".
-- **Hover or drag** the chart and the headline value follows your cursor.
-
-Snapshots are taken every 15 minutes. While the page is open, balances refresh every 15 seconds, positions every 10 seconds, and history and the chart every 30 to 60 seconds.
-
-## P&L
-
-- **Unrealized** is shown per open position: current value minus cost, with a percentage. It reads "awaiting settle" once the window has closed.
-- **Realized** is shown per history row and, on each market page, as **Total return** for that market.
-
-Gains are green and losses are red.
-
-## Positions and history
-
-Below the cards are three tabs:
-
-| Tab | What it shows |
-|-----|--------------|
-| **positions** | Your open positions under **Interval markets**. |
-| **Open orders** | Empty until limit orders ship: "Interval trades fill instantly, so nothing rests here yet." |
-| **history** | Every buy, sell, and settlement, with **All / Interval** filters. |
-
-See [Positions and history](/portfolio/positions-and-history) for the row-by-row detail.
-
-<Info>
-Older accounts may also see **Options**, **Written (covered)**, and **Markets** sections and extra history filters. Those belong to a discontinued product and only appear if you still hold positions in it.
-</Info>
+Anyone can see your page at `/u/your-username`, minus your email and your options positions, and subject to your **Visibility** settings for Wallet, Positions, and Activity. See [Account & profile](/account-and-profile#your-profile) and [Profiles & social](/platform/profiles-and-social).

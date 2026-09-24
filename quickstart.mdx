@@ -1,73 +1,65 @@
 ---
 title: "Quickstart"
-description: "Go from a fresh browser to a settled first trade on updown."
+description: "From a fresh browser to your first option and your first interval trade."
 ---
 
-This guide takes you from signing in to watching your first window settle.
-
 <Warning>
-Trading on updown uses **real money**. The amount you spend on contracts is at risk.
+Trading on updown uses **real money**. What you spend on a contract is at risk.
 </Warning>
 
 <Steps>
   <Step title="Sign in">
-    On the updown landing page, click **Start Trading**. You land on the **Live** hub. Click **Login** in the top right and sign in with your **email** or **Google** account. updown uses [Privy](https://privy.io) for authentication, so there is no browser extension or seed phrase. An embedded wallet is created for you automatically.
+    Click **Login** in the top right (on a phone, open the ☰ menu and tap **Login**). Sign in with your **email** or **Google** account. updown uses [Privy](https://privy.io), so there is no browser extension or seed phrase. Your account is created automatically with a generated username such as "BlueAngrySquare". You stay on the page you were on.
   </Step>
 
-  <Step title="Tell us about you (first time only)">
-    On the **Tell us about you** form, enter your **Name** (required) and optional **Phone**, answer the four quick dropdowns about your trading background, and click **Submit**.
+  <Step title="Open the deposit dialog">
+    Click **Cash** in the top bar (on a phone, tap **Deposit** on Home). The **Deposit with** dialog offers **Crypto** or **Card or bank**.
+
+    The first time, you'll see the **Enable trading** panel. Click **Allow trading**, wait for "Trading enabled", and click **Continue**. This one-time approval lets your trades go through without a signature each time.
   </Step>
 
-  <Step title="Allow trading">
-    Click the **Portfolio / Cash** chip in the top bar to open the **Wallet** modal. The first time, it shows the **Enable trading** panel. Click **Allow trading**, wait for "Trading enabled", then click **Done**.
+  <Step title="Deposit">
+    Choose **Crypto** and pick a network: **Robinhood Chain** (send **USDG**, at least $0.50) or **Polygon** (send **USDC**, at least $2, routed into your balance automatically). Scan the QR code or copy the address, then send from your wallet or exchange. The toast "Deposit added to your balance" confirms it.
 
-    This one-time approval lets updown convert your deposits and place your trades instantly. See [Account setup](/account-setup) for what it covers.
-  </Step>
-
-  <Step title="Deposit USDC on Polygon">
-    In the **Wallet** modal under **Deposit**, click **Copy Address** (or scan the QR code) and send at least **$2 of USDC on the Polygon network** to that address from your exchange or wallet.
-
-    Keep the modal open, or come back to it later. It tracks the conversion live: *Deposit detected… → Finalizing… → Converting your deposit to pUSD…* and finishes with the toast "Deposit converted to pUSD". Click **Go to Portfolio** to confirm your **Available** balance.
+    Or choose **Card or bank** to pay with a debit or credit card, Apple Pay, or a US bank account. Card purchases usually land within a few minutes.
 
     <Warning>
-    Send **USDC on Polygon only**. Wrong tokens or networks may result in permanent loss. Deposits under $2 sit unconverted until you top them up.
+    Send only the asset shown, on the network shown. Other tokens or networks may result in permanent loss.
     </Warning>
   </Step>
 
-  <Step title="Pick a market">
-    Click **Live** in the top bar and choose a card, for example "Bitcoin (BTC) · 15 min". The market page shows **To beat** (the price when the window opened), **Now** (the live price), and **Time left**.
+  <Step title="Buy your first option">
+    Click **Options** in the top bar. You land on SPY; pick any stock from search or the side panel. Under **Quick trade**, choose **Up**, pick one of the three cards (for example "Above $770"), and click **Add to order**. In the order panel, set the **Amount** and click **Buy $X**. "Bought for $X" confirms it.
+
+    On a phone, tap the **Trade** tab, then **▲ Up** in the docked bar. Pick a row, tap **$1**, **$5**, or **$10**, and tap **▲ Buy above $X · $Y**.
   </Step>
 
-  <Step title="Hold to buy">
-    In the ticket (the right rail on desktop, the bottom sheet on a phone) stay on **Quick Buy**. Press and hold the **$1** box under **Up** or **Down** until it fills. A **Trade executed** card confirms the fill, for example "Bought $1.00 Up @ 51¢ · Pays $1.96 if Up wins".
+  <Step title="Buy your first interval contracts">
+    Click **Interval** in the top bar. Tap **Up 51¢** (or **Down 49¢**) on any card. A trade dialog opens with the live window chart. Tap **$5**. A **Trade executed** card confirms, for example "Bought $5.00 Up @ 51¢ · Pays $9.80 if Up wins".
+  </Step>
+
+  <Step title="Add a take (optional)">
+    After any trade, the confirmation offers **Add your take**. Type up to 280 characters or pick a **GIF**, then **Post**, or **Skip**. Takes appear on the public feed with your trade.
   </Step>
 
   <Step title="Watch it settle">
-    Watch **Time left** count down. When the window closes, your position reads "settling". Within about 5 minutes, **Portfolio → history** shows **Won** or **Lost**, and your **Cash** updates. There is nothing to claim.
-  </Step>
-
-  <Step title="Optional: sell back early">
-    Changed your mind before the close? Hold **Sell** on your row in the **Live Positions** panel on the market page. Your realized profit or loss is settled immediately.
+    Open **Portfolio**. Options settle after the 4:00 PM ET close and pay to your wallet within minutes. Interval windows settle when they end, usually within a minute. There is nothing to claim.
   </Step>
 </Steps>
-
-<Note>
-A $1 Quick Buy on a thin quote can fill partially. The confirmation reads "Filled $X of your $Y — book was thin here". If the price moves sharply between the quote and your fill, updown rejects the order rather than filling at a much worse price. See [Placing orders](/trading/placing-orders).
-</Note>
 
 ## Where to go next
 
 <CardGroup cols={2}>
-  <Card title="How windows work" icon="clock" href="/trading/how-windows-work">
-    The level to beat, the tie rule, and how settlement pays.
+  <Card title="How options work" icon="chart-line" href="/options/how-options-work">
+    Calls, puts, strikes, expiries, and settlement.
   </Card>
-  <Card title="Placing orders" icon="hand-pointer" href="/trading/placing-orders">
-    Quick Buy, Market orders, and selling back.
+  <Card title="How windows work" icon="clock" href="/interval/how-windows-work">
+    The level to beat, the tie rule, and the $1 payout.
   </Card>
-  <Card title="Deposits & withdrawals" icon="wallet" href="/portfolio/deposit-withdraw">
-    Funding your account and withdrawing USDC to any Polygon address.
+  <Card title="Deposit & withdraw" icon="wallet" href="/portfolio/deposit-withdraw">
+    Networks, minimums, cards, and withdrawing USDG.
   </Card>
-  <Card title="Account setup" icon="user" href="/account-setup">
-    Login, the trading approval, your wallets, and your profile.
+  <Card title="Account & profile" icon="user" href="/account-and-profile">
+    Your username, icon, X handle, and privacy settings.
   </Card>
 </CardGroup>
