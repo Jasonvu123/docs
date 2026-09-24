@@ -1,34 +1,45 @@
 ---
 title: "Introduction"
-description: "updown runs up-or-down markets on live numbers. Pick a side, hold to buy, and know your max loss before you're in."
+description: "Same-day options on the biggest stocks, and short-term Up or Down markets on stocks and crypto. Pick a direction, tap to buy, and know your max loss before you're in."
 ---
 
-updown is where you **trade movement on everything**. Every market tracks one live number — a stock price, a crypto price, a team's live win odds, or a prediction-market outcome's chance — and cuts it into **windows**. When a window opens, it stamps the number at that instant as the level **to beat**. You buy **Up** or **Down** contracts against updown's live quote, priced from 1¢ to 99¢. When the window closes, every contract on the winning side pays **$1.00** and the other side pays $0.
+updown is where you **trade movement on everything**. There are two ways to do it, and both share one wallet, one ticket style, and one rule: you know your max loss before you're in.
 
-The most you can lose is what you paid. You can sell back at any time before the window closes, and winners are paid automatically when it settles.
+- **Options** — same-day and next-day **calls and puts on the biggest US stocks and ETFs**. Pick "Above $X" or "Below $X", pay the premium, and get paid by how far the stock finishes past your strike at the 4:00 PM ET close.
+- **Interval markets** — **Up or Down** on whether a stock or crypto price closes a 5-, 15-, or 60-minute window above where it opened. Every winning contract pays $1.00.
 
 <Warning>
-updown is **real-money trading**. Contracts are funded by USDC you deposit, and losses are real. What you pay for your contracts is the most you can lose on them.
+updown is **real-money trading**. Cash is USDG in your own wallet, and losses are real. The premium you pay for an option, or the price you pay for interval contracts, is the most you can lose.
 </Warning>
+
+## Two products at a glance
+
+| | Options | Interval markets |
+|---|---|---|
+| **What you buy** | A call ("Above $X") or a put ("Below $X") on a stock or ETF | Up or Down on the next window |
+| **Expiry** | Today's or the next session's 4:00 PM ET close | Every 5, 15, or 60 minutes |
+| **Payout** | Grows with the move past your strike, paid in USDG | $1.00 per winning contract |
+| **Max loss** | The premium | The price you paid |
+| **Where** | Nav **Options** (phone tab **Trade**) | Nav **Interval** |
 
 <CardGroup cols={2}>
   <Card title="Quickstart" icon="rocket" href="/quickstart">
-    Sign in, deposit, and settle your first trade in minutes.
+    Sign in, deposit, and place a first option and a first interval trade.
   </Card>
-  <Card title="How windows work" icon="clock" href="/trading/how-windows-work">
-    Windows, the level to beat, Up and Down, and how settlement pays.
+  <Card title="How options work" icon="chart-line" href="/options/how-options-work">
+    Calls, puts, strikes, expiries, and how settlement pays.
   </Card>
-  <Card title="Live markets" icon="bolt" href="/trading/live-markets">
-    15-minute markets on stocks, crypto, and in-play sports.
+  <Card title="How windows work" icon="clock" href="/interval/how-windows-work">
+    Windows, the level to beat, Up and Down, and the $1 payout.
   </Card>
-  <Card title="Trade markets" icon="calendar" href="/trading/trade-markets">
-    Daily, weekly, and monthly windows on stocks, crypto, and outcomes.
+  <Card title="Deposit & withdraw" icon="wallet" href="/portfolio/deposit-withdraw">
+    USDG on Robinhood Chain, USDC on Polygon, or card and bank.
   </Card>
-  <Card title="Placing orders" icon="hand-pointer" href="/trading/placing-orders">
-    Quick Buy, Market orders, selling back, and how fills work.
+  <Card title="Navigating updown" icon="compass" href="/platform/navigating-updown">
+    Home, the nav, search, and the side panel.
   </Card>
-  <Card title="Deposits & withdrawals" icon="wallet" href="/portfolio/deposit-withdraw">
-    Fund with USDC on Polygon and withdraw any time.
+  <Card title="Tournament" icon="trophy" href="/platform/tournament">
+    A two-week competition with a $1,000 prize pool.
   </Card>
 </CardGroup>
 
@@ -36,22 +47,22 @@ updown is **real-money trading**. Contracts are funded by USDC you deposit, and 
 
 <Steps>
   <Step title="Sign in">
-    Sign in with your **email** or **Google** account. An embedded wallet is created for you — no browser extension, no seed phrase.
+    Click **Login** and sign in with your **email** or **Google** account. Your account and a username are created automatically. No form, no browser extension, no seed phrase.
   </Step>
   <Step title="Allow trading once">
-    A one-time **Allow trading** approval lets updown convert your deposits and place your trades without a signature for every action.
+    A one-time **Allow trading** approval lets your trades go through with no signing prompt each time.
   </Step>
-  <Step title="Deposit USDC on Polygon">
-    Send at least **$2 of USDC on Polygon** to your deposit address. It converts to **pUSD**, your trading balance, automatically.
+  <Step title="Deposit">
+    Click **Cash** in the top bar. Send **USDG on Robinhood Chain** or **USDC on Polygon**, or pay by **card or bank**.
   </Step>
-  <Step title="Pick a side">
-    Open **Live** or **Trade**, choose a market, and hold a **$1**, **$5**, or **$10** box under **Up** or **Down**. Your order fills instantly at the live quote.
+  <Step title="Buy an option">
+    Open **Options**, pick a stock, choose **Up** or **Down**, and buy a call or put with defined risk.
+  </Step>
+  <Step title="Or pick a window">
+    Open **Interval**, tap **Up** or **Down** on a card, and tap an amount. It fills instantly at the live quote.
   </Step>
   <Step title="Watch it settle">
-    When the window closes, winning contracts pay $1.00 each and your cash updates automatically. There is no claim step.
-  </Step>
-  <Step title="Or sell back early">
-    Hold **Sell** on your row in **Live Positions** to close a position before the window ends.
+    Winners are paid to your wallet automatically. There is no claim step.
   </Step>
 </Steps>
 
@@ -59,24 +70,15 @@ updown is **real-money trading**. Contracts are funded by USDC you deposit, and 
 
 | Term | Meaning |
 |------|---------|
-| **Market** | One tracked number, such as "Apple (AAPL)", "Bitcoin (BTC)", or a live game's win odds, that runs a series of windows. |
-| **Window** | One round of a market. It opens on a fixed grid, stamps the opening value, and closes after its cadence: 15 minutes, a day, a week, or a month. |
-| **To beat** | The market's value at the instant the window opened. Up wins only if the close is strictly above it. |
-| **Up / Down** | The two sides of a window. Each contract pays $1.00 if its side wins and $0 if it loses. A window that closes exactly unchanged settles **Down**. |
-| **Contract** | The unit you trade, priced 1¢–99¢. The price is the market's implied chance that the side wins. "Pays $5.00 if Up" means you hold 5 Up contracts. |
-| **Quick Buy** | Hold-to-buy boxes for $1, $5, and $10. Press and hold to fill at the live quote. |
-| **Live vs. Trade** | **Live** runs 15-minute windows on stocks, crypto, and in-play sports. **Trade** runs daily, weekly, and monthly windows on stocks, crypto, and prediction-market outcomes. |
-| **Cash vs. Portfolio** | **Cash** is pUSD that is free to trade or withdraw. **Portfolio** is cash plus the live value of your open positions. |
-| **pUSD** | Your trading balance. USDC deposited on Polygon converts to pUSD automatically, and withdrawals convert back to native USDC. |
-| **Settlement** | Automatic. When a window closes, winners are paid $1 per contract and losers' cost is collected, usually within about 5 minutes. |
-
-## Two hubs, one mechanic
-
-Both hubs use the same ticket, the same rules, and the same settlement. They differ only in how long a window lasts and which markets they list.
-
-- **Live** — 15-minute windows. Stocks trade weekdays 4:00 AM – 8:00 PM ET, crypto trades 24/7, and sports markets run from kickoff to the final whistle.
-- **Trade** — one window per day, week, or month on stocks, crypto, and prediction-market outcomes. Windows follow UTC boundaries.
+| **Call / Put** | A call ("Above $X", "Up") pays the amount the stock finishes above the strike, per contract. A put ("Below $X", "Down") pays the amount it finishes below. |
+| **Premium** | The price you pay for an option. It is your maximum loss. |
+| **Strike** | The price your option is measured against. Six strikes are offered per expiry, at 1%, 2%, and 3% above and below the current price. |
+| **Window** | One round of an interval market. It opens on a fixed grid, stamps the opening price, and closes 5, 15, or 60 minutes later. |
+| **To beat** | The price when the window opened. Up wins only if the close is strictly above it. An unchanged close settles Down. |
+| **Contract** | The unit you trade. An interval contract is priced 1¢–99¢ and pays $1.00 if its side wins. An option contract is one stock token, can be fractional, and pays by distance. |
+| **Cash / Portfolio** | **Cash** is the USDG in your wallet. **Portfolio** is cash plus the live value of your open positions. |
+| **USDG** | The dollar token your cash is held in, on Robinhood Chain. Deposits in other assets convert to it automatically. |
 
 <Note>
-There is no trading fee on updown today. The only cost is the spread between updown's bid and ask, which is at least 2¢. See [Placing orders](/trading/placing-orders) for how quotes work.
+Options carry no fee. Interval markets carry a small taker fee that is built into the price you see. See [Buying options](/options/buying-options) and [Placing interval orders](/interval/placing-orders).
 </Note>

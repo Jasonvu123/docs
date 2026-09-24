@@ -6,152 +6,186 @@ description: "Key terms used across updown."
 ## A
 
 **Allow trading**
-The one-time approval button in the Wallet modal that lets updown convert deposits and place trades without a signature for every action.
+The one-time approval, shown in the deposit dialog, that lets updown move funds for the trades you place without a signature each time.
 
-**Available**
-pUSD you can spend or withdraw right now: your balance minus what is committed to open windows. In the Wallet and Withdraw modals, the Available line shows your full pUSD balance instead.
+**Available cash**
+Cash minus what your open interval positions reserve. Shown on the Portfolio value card. It is what you can spend on interval trades or withdraw.
 
 ## B
 
-**Balance**
-The headline figure on the Portfolio page: Available plus In position.
+**Break-even**
+For an option, the price where a bought contract has paid for itself: strike plus premium for a call, strike minus premium for a put.
 
 **Buying power**
-The spendable balance shown in the market page's Live Positions panel. Same idea as Available.
+The interval market page's name for Available cash, shown in Live Positions.
 
 ## C
 
+**Call**
+An option that pays the amount the stock token finishes above the strike, per contract. Shown as "Above $X" under the **Up** outlook.
+
 **Cash**
-The free-balance cell in the Portfolio / Cash chip: pUSD not tied up in open positions.
+The USDG in your wallet. Shown in the top bar. Click it to deposit.
+
+**% chance**
+updown's estimate that an option finishes past its strike, or an interval side's price read as a probability.
 
 **Contract**
-The unit you trade. One Up or Down claim on a window, priced 1¢–99¢, paying $1.00 if its side wins and $0 if not. The order book's "Shares" column counts contracts.
+The unit you trade. An **interval contract** is one Up or Down claim on a window, priced 1¢–99¢, paying $1.00 if its side wins. An **option contract** is one stock token, can be fractional to 0.01, and pays by distance past the strike. The two are not the same thing.
 
 ## D
 
-**Daily / Weekly / Monthly**
-The Trade hub's expiries. One window per UTC day (00:00 – 23:59), per week (Monday 00:00 UTC), or per month (the 1st, 00:00 UTC).
-
-**Deposit wallet (Polygon)**
-The Polygon address that holds your pUSD balance. Shown on your Profile page.
-
 **Down**
-The side that wins if the market's value closes the window at or below the level to beat. Ties go to Down. On team markets it is named after the second team.
+The interval side that wins if the price closes the window at or below the level to beat. Ties go to Down. Also the options outlook that offers puts.
 
 ## E
 
-**End-of-Day / End-of-Week / End-of-Month**
-The market page's cadence menu names for a subject's Daily, Weekly, and Monthly markets.
-
-**Entry**
-Your average purchase price for a side, in cents.
-
 **Expiry**
-On the Trade hub, the window length you are trading. Cards show it as "Expires today" or "Expires Sep 30 UTC".
+For options, the regular-session close a contract settles at: 4:00 PM ET, or 1:00 PM ET on half-days. Two are offered at a time.
+
+**Explore**
+The nav label for Home.
+
+## F
+
+**Feed**
+The live list of everyone's trades, with takes. In the side panel on wide screens, or the Feed tab on a phone.
+
+## H
+
+**Hot take**
+A take on a long-shot interval trade, bought under 20¢. It gets a 🔥 badge on the feed.
 
 ## I
 
-**In position**
-The live value of everything you hold in open windows, marked at the current midpoint.
-
 **Interval market**
-updown's internal name for any up-or-down window market. It appears in the Portfolio "Interval markets" section and the "Interval" history filter.
+An Up-or-Down window market on a stock or crypto price, at 5-, 15-, or 60-minute cadence. The nav label is **Interval**.
 
 ## L
 
 **Limit**
-A ticket order type that is not yet available. Its button reads "Limit orders open with the order book".
-
-**Live**
-The hub of 15-minute markets on stocks, crypto, and in-play sports.
+An order type in the interval ticket that is not yet available. Its button is disabled.
 
 **Live Positions**
-The market page panel listing your contracts in the current window, with Sell buttons.
+The interval market page panel listing your contracts in the current window, with Sell buttons.
 
 ## M
 
 **Market**
-One tracked number that runs a series of windows, for example "Apple (AAPL)". Also the ticket order type that spends a dollar amount at the live quote.
+An interval subject at one cadence, for example "Apple (AAPL) · 15 min". Also the interval order type that spends a dollar amount at the live quote.
 
 **Max payout**
-What a Market order returns if its side wins: dollars divided by price.
+What an interval Market order returns if the side wins: dollars divided by price.
+
+**Multi-buy**
+Placing up to 20 interval buys in one order. Each pick is an independent buy.
 
 ## N
 
 **Now**
-The market's live value.
+An interval market's live price.
 
 ## O
 
-**Odds**
-The chosen side's price read as a chance, for example "51% chance".
+**Option**
+A cash-settled call or put on a stock's Robinhood Chain token.
 
-**Order book**
-updown's resting Up and Down quote: Asks above, Bids below, with "Last" and "Spread" between them. Columns Price, Shares, and Total.
+**Outlook**
+Quick trade's first choice on an options page: **Up**, **Down**, **Volatile**, or **Neutral**.
 
 ## P
 
 **Past**
-The market page dropdown of recently settled windows, each linking to its result page.
+The interval market page dropdown of recently settled windows, each linking to its result page.
+
+**Patterns**
+Home's ticker of markets on a streak, such as "Up 6 in a row".
 
 **Pays**
-The dollars you receive if your side wins, equal to the contracts you hold, for example "pays $5.00 if Up".
-
-**P&L (profit and loss)**
-Your gain or loss. Unrealized while a position is open, realized once you sell back or the window settles.
-
-**Polygon**
-The blockchain your wallet lives on. Deposits and withdrawals are USDC on Polygon.
+On an interval position, the dollars you receive if your side wins, equal to the contracts held.
 
 **Portfolio**
-Cash plus the live value of open positions. Shown in the top-bar chip and on the Portfolio page.
+Cash plus the live value of your open positions. Shown in the top bar. Also the page that holds your balance, positions, activity, and profile.
 
-**pUSD**
-Your trading balance. Created automatically from USDC deposits and turned back into native USDC on withdrawal.
+**Premium**
+What you pay for an option. It is the most you can lose on it.
+
+**Put**
+An option that pays the amount the stock token finishes below the strike, per contract. Shown as "Below $X" under the **Down** outlook.
 
 ## Q
 
 **Quick Buy**
-Hold-to-buy boxes for $1, $5, and $10. Press and hold for about 0.7 seconds to fill at the live quote.
+The interval ticket's default mode: pick a side, tap **$1**, **$5**, **$10**, or a custom amount.
+
+**Quick trade**
+The options page's guided picker: choose an outlook, then one of three ready-made trades.
 
 ## R
 
-**Realized**
-Profit or loss locked in by selling back or by settlement, for example "+$0.40 realized".
+**Rank**
+Your position in the Tournament, shown on your Portfolio header.
+
+**Realized P&L**
+Profit or loss locked in by selling back or by settlement.
+
+**Refund**
+The outcome of an option that had no settlement price within 6 hours of expiry. The premium is returned and the position shows as void.
+
+**Robinhood Chain**
+The network your wallet and cash live on, and where the stock tokens that options settle against trade.
 
 ## S
 
 **Settlement**
-The automatic close-out of a window: winning contracts are paid $1.00 each and the net amount moves on-chain. History rows read Won, Lost, or Settled.
+The automatic close-out of a position. Interval windows pay $1.00 per winning contract, usually within a minute of the close. Options pay by distance past the strike, within minutes of the 4:00 PM ET close.
+
+**Settlement price (options)**
+The average on-chain token price over the 5 minutes before the close.
 
 **Settling**
-A position whose window has closed but has not been paid yet, usually for under 5 minutes.
+A position whose window or expiry has passed but which has not been paid yet.
 
-**Signing wallet (Polygon)**
-Your Privy embedded wallet. This is the address you send USDC to. Shown on your Profile page and in the Wallet modal.
+**Shares per token**
+How many shares one stock token represents. It starts near 1 and creeps up as dividends are reinvested.
 
 **Spread**
-The gap between updown's best ask and best bid, at least 2¢. It is the only cost of trading.
+The gap between the ask and the bid. On interval markets it is at least 2¢.
+
+**Stock token**
+A token on Robinhood Chain backed by a company's or ETF's shares. Options are priced and settled against it.
+
+**Straddle / Strangle**
+A call and a put bought together, offered as the **Volatile** outlook or **Up or Down** in the quick-buy popup.
+
+**Strike**
+The price an option is measured against. Six per expiry, at 1%, 2%, and 3% above and below the current price.
 
 ## T
 
+**Take**
+A note of up to 280 characters, or a GIF, posted with a trade. Shown on the feed and your profile.
+
+**Taker fee**
+A small fee on every interval buy and sell, built into the price. Largest near 50¢, smallest at the extremes. Never charged on settlement.
+
+**Thin**
+A stock token priced only by shallow pools. Thin tokens settle on the on-chain average alone.
+
 **Time left**
-Countdown to the window close. It turns amber, then red, as the window runs out.
+Countdown to an interval window's close. White, then amber, then red.
 
 **To beat**
-The market's value when the window opened. Up needs a close strictly above it.
+An interval window's opening price. Up needs a close strictly above it.
 
 **Total return**
-Your realized P&L on one market, in dollars and as a percentage of what you staked. Shown in Live Positions.
+Your realized P&L on one interval market, shown in Live Positions.
 
-**Total traded**
-Face-value volume: $1 per contract across every buy and sell.
-
-**Trade**
-The hub of daily, weekly, and monthly markets on outcomes, stocks, and crypto.
+**Tournament**
+The current two-week competition, ranked by realized P&L across options and interval markets.
 
 **Trade executed**
-The confirmation card shown after a fill.
+The interval confirmation card shown after a fill.
 
 ## U
 
@@ -159,15 +193,29 @@ The confirmation card shown after a fill.
 Current value minus cost of the contracts you still hold.
 
 **Up**
-The side that wins if the market's value closes the window strictly above the level to beat. On team markets it is named after the tracked team.
+The interval side that wins if the price closes the window strictly above the level to beat. Also the options outlook that offers calls.
+
+**Up next**
+Home's countdown clocks to the next 5-, 15-, and 60-minute windows and the options close.
 
 **USDC**
-The stablecoin you deposit and withdraw, as native USDC on Polygon.
+The stablecoin you can deposit on Polygon. It is routed into your USDG balance automatically.
+
+**USDG**
+The dollar token your cash is held in, on Robinhood Chain. You deposit, trade, and withdraw in it.
+
+## V
+
+**Volume**
+On your Portfolio header, your face-value trading volume: $1 per interval contract, and contracts times the stock price for options.
 
 ## W
 
+**Watchlist**
+Stocks you have starred in the side panel's Stocks tab. Stored in your browser.
+
 **Window**
-One round of a market with a fixed open and close: 15 minutes on Live, a day, week, or month on Trade.
+One round of an interval market with a fixed open and close: 5, 15, or 60 minutes.
 
 **Won / Lost**
-History labels for settled positions.
+Activity labels for settled positions.

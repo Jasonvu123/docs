@@ -18,16 +18,25 @@
             "pages": [
               "introduction",
               "quickstart",
-              "account-setup"
+              "account-and-profile"
             ]
           },
           {
-            "group": "Trading",
+            "group": "Options",
             "pages": [
-              "trading/how-windows-work",
-              "trading/live-markets",
-              "trading/trade-markets",
-              "trading/placing-orders"
+              "options/how-options-work",
+              "options/the-options-page",
+              "options/buying-options",
+              "options/positions-and-settlement"
+            ]
+          },
+          {
+            "group": "Interval markets",
+            "pages": [
+              "interval/how-windows-work",
+              "interval/browsing-markets",
+              "interval/placing-orders",
+              "interval/multi-buy"
             ]
           },
           {
@@ -41,8 +50,9 @@
           {
             "group": "Platform",
             "pages": [
-              "platform/finding-markets",
-              "platform/leaderboard"
+              "platform/navigating-updown",
+              "platform/tournament",
+              "platform/profiles-and-social"
             ]
           },
           {
@@ -58,16 +68,23 @@
     ]
   },
   "redirects": [
-    { "source": "/trading/options-trading", "destination": "/trading/how-windows-work" },
-    { "source": "/trading/spot-trading", "destination": "/trading/live-markets" },
-    { "source": "/trading/order-types", "destination": "/trading/placing-orders" },
+    { "source": "/account-setup", "destination": "/account-and-profile" },
+    { "source": "/trading/how-windows-work", "destination": "/interval/how-windows-work" },
+    { "source": "/trading/live-markets", "destination": "/interval/browsing-markets" },
+    { "source": "/trading/trade-markets", "destination": "/interval/browsing-markets" },
+    { "source": "/trading/placing-orders", "destination": "/interval/placing-orders" },
+    { "source": "/trading/options-trading", "destination": "/options/how-options-work" },
+    { "source": "/trading/spot-trading", "destination": "/interval/browsing-markets" },
+    { "source": "/trading/order-types", "destination": "/interval/placing-orders" },
     { "source": "/portfolio/positions", "destination": "/portfolio/positions-and-history" },
-    { "source": "/platform/markets", "destination": "/platform/finding-markets" },
+    { "source": "/platform/markets", "destination": "/platform/navigating-updown" },
+    { "source": "/platform/finding-markets", "destination": "/platform/navigating-updown" },
+    { "source": "/platform/leaderboard", "destination": "/platform/tournament" },
     { "source": "/platform/rewards", "destination": "/introduction" }
   ],
   "footer": {
     "socials": {
-      "x": "https://x.com/thetalabsgg",
+      "x": "https://x.com/updown_markets",
       "discord": "https://discord.gg/d9gfrYWSAu"
     }
   }

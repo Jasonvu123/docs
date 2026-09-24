@@ -1,0 +1,73 @@
+---
+title: "Browsing interval markets"
+description: "The Interval hub, the Stocks and Crypto pages, market cards, and the market page."
+---
+
+Click **Interval** in the top bar to open the hub, headed **Browse markets**. Stocks and crypto also have their own pages, and Home features a rotating selection. For the mechanic behind every window, see [How windows work](/interval/how-windows-work).
+
+## The Interval hub
+
+The hub lists every open market as a compact card, with a sub-line such as "All Categories · All Intervals · 45 markets".
+
+<Steps>
+  <Step title="Filter">
+    Two dropdowns: **category** (**All Categories**, **Stocks**, **Crypto**, with counts) and **interval** (**All Intervals**, **5 min**, **15 min**, **60 min**). Filters are kept in the page URL, so you can bookmark a view.
+  </Step>
+  <Step title="Trade from a card, or open it">
+    Tap a card's **Up 51¢** or **Down 49¢** button to open the trade dialog with that side selected, or tap the card body to open the market page.
+  </Step>
+  <Step title="Or place several at once">
+    Turn on **Multi-buy** to pick up to 20 outcomes and place them in one order. See [Multi-buy](/interval/multi-buy).
+  </Step>
+</Steps>
+
+**Compact cards** show the image and title, **To beat** and **Now** with the move ("▲ $1.20"), the **Up** / **Down** price buttons, and a footer with the cadence and countdown.
+
+Empty states read "No markets right now", "No stock markets right now — Stock markets list while their price feed is live.", or "New recurring markets roll out here as their metrics go live.", with a **Browse all markets** button.
+
+## Stocks and Crypto pages
+
+Home's **Stocks** and **Crypto** sections each have a **See all** link to a category page. The page has:
+
+- An interval tab row **5 min / 15 min / 60 min** with counts. The default is **15 min**.
+- A **Multi-buy** toggle.
+- The **featured panel**.
+- A two-column grid of **live cards**.
+
+### The featured panel
+
+| Element | What it shows |
+|---------|--------------|
+| **Title** | The market and cadence, "Bitcoin (BTC) · 15 min" |
+| **Market / Pays out / Odds** | Each side with its payout multiple and price, "Up · 1.96x · 51¢" |
+| **Closes in** / **Opens in** | Countdown to the close |
+| **To beat** and **Now** | The opening price (with the close time) and the live price (with the move) |
+| **Chart** | The whole current window so far, with a **Target** pill at the level to beat and avatars of traders who bought, where they bought |
+
+On Home the panel rotates automatically every 9 seconds between options and interval markets, with dots to jump.
+
+<Note>
+The "Pays out" multiple is 1 divided by the price. It ignores the spread and fee you pay when you actually fill.
+</Note>
+
+### Live cards
+
+Each card shows the image and title, the cadence, the countdown, **To beat** (with the close time), **Now** (with the move), a row per side with its price button and a bar, a **Live** or **Upcoming** tag, and a **Last 6** strip of triangles showing recent window results. Hover a triangle for "2:00 PM window · $325.40 → $325.62 · Up". On Home, cards also carry **Also** links to the subject's other cadences.
+
+## The market page
+
+| Section | What it shows |
+|---------|--------------|
+| **Header** | Image, title with the cadence menu ("Apple (AAPL) · 15 Minutes ▾ · Up or Down"), the window line, and the **LIVE** tag |
+| **To beat / Now / Time left** | The window's key numbers. See [How windows work](/interval/how-windows-work#reading-the-window-header) |
+| **Chart** | Buttons **Live / 5m / 15m / 1H / MKT**. **Live** is a two-minute tape and the default; **MKT** is the whole window so far. Buyer avatars are pinned where they bought |
+| **Past** | A dropdown of up to eight settled windows ("2:15 PM ET · Today"), plus chips for the last four. Each opens that window's result page |
+| **Live Positions** | Your contracts in the current window, with **Sell** buttons and your **Buying power** |
+| **Outcome row** | "Up or Down · BTC Price: $77,271.11 · 51%" with **Up 51¢ / Down 49¢** and the ⓘ tie note |
+| **Settlement rules** | The exact rules for this market |
+| **Similar markets** | Up to three related markets |
+| **Ticket** | The right rail on desktop; docked **Buy Up / Buy Down** pills on a phone. See [Placing interval orders](/interval/placing-orders) |
+
+The cadence menu (tooltip "Change expiry") switches between **5 Minutes**, **15 Minutes**, and **60 Minutes** for the same subject.
+
+Stock prices update every second and crypto prices on every trade. The hub's market list refreshes every minute, and stock cards leave the hub while their market is closed. See [market hours](/interval/how-windows-work#market-hours).

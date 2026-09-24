@@ -1,0 +1,44 @@
+---
+title: "Profiles & social"
+description: "Public profiles, following, the trade feed, takes, and avatar pins on charts."
+---
+
+Every trade on updown is public by default, and every trader has a public profile. This page covers the social layer built on top of that.
+
+## Public profiles
+
+Click any avatar or username anywhere in the app to open that trader's profile at `/u/username`. It shows their icon, name, X link if set, the stats **Volume**, **Realized P&L**, and **Rank**, their **Following** and **Followers** counts, their open **Positions**, their top take, and their activity.
+
+- **Follow** with the button in the header. Hover it to **Unfollow**. Followers and following lists open from the counts.
+- Sections a trader has hidden read "Wallet hidden", "Positions hidden", or "Activity hidden" with "@name keeps this private."
+- A profile never shows the trader's email, wallet addresses, withdrawals, or options positions.
+
+Control your own visibility in **Edit profile → Visibility**. See [Account & profile](/account-and-profile#your-profile).
+
+## The feed
+
+The feed is the live list of everyone's trades. Open it from the side panel's **Feed** tab on wide screens, or the **Feed** tab on a phone, where it has filters **All / Options / Interval**.
+
+Each row shows the trader's icon and name, how long ago, and a trade card such as "SPY above $770" with an **Option** tag and "Bought $4.92 ▲ Up $4.57", or an interval buy with its side and price. Rows with a take show a **Take** badge, or **🔥 Hot take** when the trade was a long shot (an interval contract bought under 20¢). A heart under each take shows its likes. The feed updates every 5 seconds.
+
+## Takes
+
+After any trade, the confirmation offers a take box: "Add your take — Shown on the feed with this trade", with the placeholder "Why this trade?".
+
+<Steps>
+  <Step title="Write or pick">
+    Type up to **280 characters**, or tap **GIF** to pick one.
+  </Step>
+  <Step title="Post or skip">
+    Tap **Post**, or **Skip** to trade without a take.
+  </Step>
+</Steps>
+
+Takes cannot be edited later. A multi-buy takes one take for the whole batch. Posting is limited to 20 per minute.
+
+## Avatar pins on charts
+
+Charts show who bought where:
+
+- On an interval market page and the featured panel, the current window's chart carries each buyer's avatar at their entry. The tooltip reads their name, "$5.00 on Up", and their take.
+- On an options stock page, the last 24 hours of buys are pinned to the candles: calls above, puts below. The tooltip reads their name, "$4.92 on the call at $770", and their take.
