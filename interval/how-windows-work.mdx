@@ -24,11 +24,11 @@ Windows roll continuously. When one closes, the next has already opened. The pri
 
 ## Up and Down
 
-- **Up** wins if the price closes the window **strictly above** the level to beat.
-- **Down** wins if it closes **at or below** it.
+- **Up** wins if the price closes the window **at or above** the level to beat.
+- **Down** wins if it closes **strictly below** it.
 
 <Note>
-**Tie rule.** An unchanged close settles **Down**. The ticket's ⓘ note puts it plainly: "If the price is unchanged, it settles as Down. Up needs a real move."
+**Tie rule.** An unchanged close settles **Up**. Both prices are compared rounded to 4 decimal places (DOGE: 7), so "unchanged" means equal at that precision. The ticket's ⓘ note puts it plainly: "If the price is unchanged (compared to 4 decimal places), it settles as Up. Down needs a real move." This is the same rule Kalshi uses for its price markets, and it has applied to every window opened since 1 October 2026; windows that opened before then kept the old rule (an unchanged close settled Down), which is why older results in a market's history can show a flat window as Down.
 </Note>
 
 ## Contracts and payout
@@ -89,7 +89,7 @@ Each market page has a **Settlement rules** section. It reads, for a 15-minute A
 
 > A new window opens every 15 minutes. Its opening price is AAPL's price at the moment the window opens.
 >
-> Up wins only if AAPL's price closes strictly above that opening price. Down wins if it closes at or below it — so a window that finishes exactly unchanged settles Down.
+> Down wins only if AAPL's price closes strictly below it. Up wins if it closes at or above it, so a window that finishes exactly unchanged settles Up. Both prices are compared rounded to 4 decimal places: Up wins when the final value is at least as high as the opening price at that precision.
 >
 > Each winning contract pays $1.00 and each losing contract expires at zero. Every position is fully collateralized when you enter, so an Up at p cents and its matching Down at 100 minus p cents together set aside exactly $1.00.
 
