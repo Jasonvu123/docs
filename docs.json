@@ -101,10 +101,12 @@
             "group": "Order entry",
             "pages": [
               "api-reference/create-order",
+              "api-reference/create-orders",
               "api-reference/get-order",
               "api-reference/list-orders",
               "api-reference/cancel-order",
               "api-reference/cancel-all-orders",
+              "api-reference/cancel-orders",
               "api-reference/get-positions",
               "api-reference/get-fills",
               "api-reference/get-balance"
