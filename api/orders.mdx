@@ -95,6 +95,28 @@ curl -X DELETE "https://api.updown.fast/trade-api/v1/portfolio/orders?series_tic
 
 Cancels are **never rate limited**, so you can always pull your orders. Cancel-all covers orders you placed through the API. To have them pulled automatically if your program loses its connection, turn on [cancel on disconnect](/api/websocket#cancel-on-disconnect).
 
+## Many at once (batch)
+
+A quoter posts a ladder of levels, not one order. [`POST /portfolio/orders/batch`](/api-reference/create-orders) places up to **20** orders in one call and [`DELETE /portfolio/orders/batch`](/api-reference/cancel-orders) cancels up to **100** by id. Items run in the order you send them, and **each answers for itself**: an `order`, or an `error` with the same codes as the single-order routes. One refused item never fails the rest, so always read every result.
+
+```bash
+curl -X POST https://api.updown.fast/trade-api/v1/portfolio/orders/batch \
+  -H "Authorization: Bearer $UPDOWN_API_KEY" -H "Content-Type: application/json" \
+  -d '{ "orders": [
+        { "market_ticker": "sol-15m-261006-1945-2000", "outcome": "up",   "action": "buy", "price": "0.44", "count": "10", "post_only": true, "client_order_id": "ladder-1-up-44" },
+        { "market_ticker": "sol-15m-261006-1945-2000", "outcome": "down", "action": "buy", "price": "0.54", "count": "10", "post_only": true, "client_order_id": "ladder-1-dn-54" }
+      ] }'
+```
+
+```json
+{ "results": [
+    { "client_order_id": "ladder-1-up-44", "order": { "order_id": "sol-15m/o5870619", "status": "resting", "..." : "..." } },
+    { "client_order_id": "ladder-1-dn-54", "error": { "code": "POST_ONLY_CROSS", "message": "That post_only order would have traded at once." } }
+] }
+```
+
+Each placed item costs one unit of your key's order budget (10 per second, bursts of 20): an item past the budget is answered `RATE_LIMITED` in place and the ones before it stand. Cancels in a batch are free, like every cancel. The idempotency rules are unchanged — resend a batch with the same `client_order_id`s and you get the same orders back, never duplicates.
+
 ## Your orders, positions, fills and balance
 
 | Endpoint | Returns |
@@ -113,7 +135,7 @@ Winning contracts settle automatically after the window closes; the payout lands
 
 Three layers apply to every order, and the tightest wins:
 
-1. **Your key's limits** — max order, max per day, max resting orders per market, which series. Trade keys start at **$20 per order** and **$500 per day** unless you set others. [`GET /account`](/api-reference/get-account) shows them.
+1. **Your key's limits** — max order, max per day, max resting orders per market, which series. Trade keys start at **$20 per order** and **$500 per day** unless you set others. [`GET /account`](/api-reference/get-account) shows them, and `daily_used_usd` shows how much of the day's limit is used. **The daily figure counts what filled in the last 24 hours plus what is resting right now** — a cancelled order never counts, so a quoter that places and pulls all day only uses the limit with real fills and live quotes.
 2. **Your account's limit** — a cap on how much you can have at risk across all open windows at once.
 3. **The market's limit** — a cap on all users together in one window.
 
