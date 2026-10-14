@@ -1562,7 +1562,8 @@
                   "type": "string",
                   "enum": [
                     "crypto",
-                    "stocks"
+                    "stocks",
+                    "preipo"
                   ]
                 },
                 "underlying": {
@@ -1578,7 +1579,8 @@
                   "enum": [
                     "coinbase",
                     "pyth",
-                    "robinhood-chain"
+                    "robinhood-chain",
+                    "hyperliquid"
                   ]
                 },
                 "contract_terms": {
@@ -1670,7 +1672,8 @@
                 "type": "string",
                 "enum": [
                   "crypto",
-                  "stocks"
+                  "stocks",
+                  "preipo"
                 ]
               },
               "underlying": {
@@ -1686,7 +1689,8 @@
                 "enum": [
                   "coinbase",
                   "pyth",
-                  "robinhood-chain"
+                  "robinhood-chain",
+                  "hyperliquid"
                 ]
               },
               "contract_terms": {
