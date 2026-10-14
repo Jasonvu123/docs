@@ -55,13 +55,15 @@ Every command carries an `id` you choose; the reply echoes it.
 
 ## Channels
 
-| Channel | Keyed by | Sends |
-|---|---|---|
-| `orderbook_delta` | markets / series | An `orderbook_snapshot` per market, then one `orderbook_delta` per changed level. |
-| `ticker` | markets / series | Top of book on the Up scale and the last trade price, when they change. |
-| `trade` | markets / series | Every public trade (same shape as [`GET /markets/{ticker}/trades`](/api-reference/get-trades)). |
-| `window_lifecycle` | markets / series | A window's events: `open` with its `price_to_beat`, then `closed`, then `settled` with `result` and `settlement_price`. |
-| `prices` | `symbols` | Live price of an underlying: the current price at once, then every print. |
+A **channel** is what you subscribe to. Each data message it sends carries its own `type`, which is the message's name and is not always the channel's: `prices` sends `price`, `user_orders` sends `user_order`, `market_positions` sends `market_position`, and `orderbook_delta` sends an `orderbook_snapshot` first. Switch on `type` (or on `sid`), never on the channel name.
+
+| Channel | Keyed by | Message `type` | Sends |
+|---|---|---|---|
+| `orderbook_delta` | markets / series | `orderbook_snapshot`, `orderbook_delta` | A snapshot per market, then one delta per changed level. |
+| `ticker` | markets / series | `ticker` | Top of book on the Up scale and the last trade price, when they change. |
+| `trade` | markets / series | `trade` | Every public trade (same shape as [`GET /markets/{ticker}/trades`](/api-reference/get-trades)). |
+| `window_lifecycle` | markets / series | `window_lifecycle` | A window's events: `open` with its `price_to_beat`, then `closed`, then `settled` with `result` and `settlement_price`. |
+| `prices` | `symbols` | `price` | Live price of an underlying: the current price at once, then every print. |
 
 With an API key you also get three **private channels** for your own account — see [Your account](#your-account-private-channels) below.
 
@@ -91,15 +93,21 @@ ws.on("open", () => {
 
 A bad key is refused before the connection opens (HTTP `401` with the reason, the same messages as [REST](/api/authentication#when-a-key-is-refused)). Without a key the connection works as before, with the public channels only.
 
-| Channel | Sends |
-|---|---|
-| `user_orders` | Your order, every time it changes: placed, part-filled, filled, cancelled, closed with its window. On subscribe: every order you have resting. |
-| `fill` | Each of your fills, as taker **or** maker, with `is_taker`, the fee and `post_position` — your contracts of that outcome after the fill. |
-| `market_positions` | Your position in a market's outcome, every time it changes (`count` `"0"` = closed out). On subscribe: every open position. |
+| Channel | Message `type` | Sends |
+|---|---|---|
+| `user_orders` | `user_order` | Your order, every time it changes: placed, part-filled, filled, cancelled, closed with its window. On subscribe: every order you have resting. |
+| `fill` | `fill` | Each of your fills, as taker **or** maker, with `is_taker`, the fee and `post_position` — your contracts of that outcome after the fill. |
+| `market_positions` | `market_position` | Your position in a market's outcome, every time it changes (`count` `"0"` = closed out). On subscribe: every open position. |
 
-They cover your whole account; add `market_tickers` to narrow them. `user_orders` carries the same order object as [REST](/api/orders), with `client_order_id` on orders you placed through the API.
+They cover your whole account; add `market_tickers` to narrow them. The channel names are plural where a message is one item: you subscribe to `user_orders` and receive `user_order` messages, one per order. `user_order` carries the same order object as [REST](/api/orders), with `client_order_id` on orders you placed through the API.
 
 ```json
+{ "type": "user_order", "sid": 1, "seq": 1, "ts_ms": 1791947133682,
+  "msg": { "order_id": "aapl-5m/o842778", "client_order_id": "tmv7jrxn5-ws1",
+           "market_ticker": "aapl-5m-261014-0325-0330", "outcome": "up", "action": "buy",
+           "price": "0.01", "time_in_force": "good_till_canceled", "post_only": true,
+           "status": "resting", "count": "1", "fill_count": "0", "remaining_count": "1",
+           "created_ts_ms": 1791947132418 } }
 { "type": "fill", "sid": 2, "seq": 1, "ts_ms": 1791316274012,
   "msg": { "fill_id": "f912", "order_id": "o5870619", "client_order_id": "mm-000123",
            "market_ticker": "sol-15m-261006-1945-2000", "outcome": "up", "action": "buy",

@@ -36,7 +36,7 @@ The unit you trade. An **interval contract** is one Up or Down claim on a window
 ## D
 
 **Down**
-The interval side that wins if the price closes the window at or below the level to beat. Ties go to Down. Also the options outlook that offers puts.
+The interval side that wins if the price closes the window strictly below the level to beat. Also the options outlook that offers puts.
 
 ## E
 
@@ -176,7 +176,7 @@ A stock token priced only by shallow pools. Thin tokens settle on the on-chain a
 Countdown to an interval window's close. White, then amber, then red.
 
 **To beat**
-An interval window's opening price. Up needs a close strictly above it.
+An interval window's opening price. Up wins at or above it, Down strictly below it, both compared at 4 decimal places.
 
 **Total return**
 Your realized P&L on one interval market, shown in Live Positions.
@@ -193,7 +193,7 @@ The interval confirmation card shown after a fill.
 Current value minus cost of the contracts you still hold.
 
 **Up**
-The interval side that wins if the price closes the window strictly above the level to beat. Also the options outlook that offers calls.
+The interval side that wins if the price closes the window at or above the level to beat. Ties go to Up. Also the options outlook that offers calls.
 
 **Up next**
 Home's countdown clocks to the next 5-, 15-, and 60-minute windows and the options close.
