@@ -13,6 +13,8 @@ You can pick the right direction and still lose money. If the price closes only 
 
 The Multiplier is on selected 60 min markets: **BTC, ETH, SOL, NVDA, TSLA, and META**. On those markets the **Multiplier** slider appears in the ticket, under the amount.
 
+On stock markets it pauses for the windows around the market's **open** (9:00–10:30 AM ET) and **close** (the last 30 minutes of the session), when prices jump the most. The button then reads "Multiplier reopens at …" and regular Up / Down stays open. In every window, the highest multiplier on offer comes down toward **1×** over the last 10 minutes, and new orders close in the **last minute**.
+
 ## Placing a multiplier order
 
 <Steps>
@@ -76,7 +78,7 @@ You can sell an open multiplier order before the window closes:
 1. Tap **Sell ~$X** on its row in **Live Positions**. The figure is the current sale price.
 2. The money is sent to your wallet, and you get a notification such as "Multiplier sold for $4.85 (+$0.85)."
 
-The sale price is **below the order's live value** ("Now ~$X"). Selling is not available in a window's **last 3 minutes**, the same cutoff as buying. If the price moves sharply while you tap, the sale is refused so you can check the new price.
+The sale price is **below the order's live value** ("Now ~$X"). Selling is not available in a window's **last minute**, the same cutoff as buying. If the price moves sharply while you tap, the sale is refused so you can check the new price.
 
 ## At the close
 
@@ -88,7 +90,8 @@ A multiplier order settles on the window's close price like any interval contrac
 |------|--------------|
 | **Amount** $1 to $25 per order | "Enter between $1 and $25." |
 | **$100 at risk per day** (US Eastern), counting open orders until they settle or are sold | "Multiplier orders are limited to $100 at risk per day." |
-| **No new orders in a window's last 3 minutes** | "Multiplier orders close in a window's last 3 minutes." |
+| **No new orders in a window's last minute** | "Multiplier orders close in a window's last minute." |
+| **No new orders on a stock window over the market's open (9:00–10:30 AM ET) or close (the last 30 minutes)** | "The multiplier pauses around the stock market's open and close — regular Up / Down is still open." |
 | **A window or the market is full** | "This window is full for multiplier orders — try a smaller stake or the next window." / "Multiplier orders are full right now — try a smaller stake or the next window." |
 | **The price moved** before the order went through | "The price moved — check the new payout and try again." |
 | **No fresh price** | "Waiting for a fresh price — try again in a moment." |
