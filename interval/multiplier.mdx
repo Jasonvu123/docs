@@ -16,14 +16,20 @@ You can pick the right direction and still lose money. If the price closes only 
 
 ## Where it's offered
 
-The Multiplier launches on a selected set of interval markets. On those markets the **Multiplier** slider appears in the ticket, under the amount.
+The Multiplier launches on a selected set of interval markets. On those markets the **Multiplier** slider appears in the ticket, under the amount. It's open in every window until the window's **last minute**.
 
-It pauses at times when prices jump the most. The button then reads "Multiplier reopens …" and regular Up / Down stays open:
+It pauses at times when prices jump the most. Regular Up / Down stays open. A window is paused if any part of it falls in these times (all ET):
 
-- **Every market** pauses over the **8:30 and 10:00 AM ET** US data releases on weekdays.
-- **Stock markets** offer it **10:30 AM – 3:30 PM ET** on trading days and **9 PM – 4 AM ET** Sunday to Thursday nights. That keeps it away from the market's open and close.
+| Market | Paused |
+|--------|--------|
+| **Crypto** | Weekdays, around the **8:30 AM** and **10:00 AM** US data releases |
+| **Stocks** | Weekdays: **4:00–5:00 AM** (the pre-market's first hour), around the **8:30 AM** data release, **9:00–10:00 AM** (the open), and **3:30–4:30 PM** (the close, or around 1 PM on an early-close day) |
+| | Every night **8:00–9:00 PM** (the overnight session's first hour) |
+| | **Weekends**, from Friday 4 PM to Sunday 8 PM, and a market holiday's day hours (4 AM – 8 PM) |
 
-In every window, the highest multiplier on offer comes down toward **1×** over the last 10 minutes, and new orders close in the **last minute**.
+So on a trading day a stock offers it in the rest of the pre-market (5–9 AM), from 10:00 AM to 3:30 PM, after hours from 4:30 PM (Monday to Thursday), and overnight from 9 PM (Sunday to Thursday).
+
+While it's paused, the button reads **Multiplier reopens at 9:00 PM** (or a day and time, such as **Multiplier reopens Sun 9:00 PM**). The note under it says why, for example "Paused for US data releases. Slide to 1× to trade Up / Down."
 
 ## What's in a multiplier order
 
@@ -50,6 +56,8 @@ Settings between the rows blend smoothly. Up to 7×, a right call always pays so
 
 Every option stops paying at a **cap** 5 typical moves past the price to beat, so the most an order can pay is known when you place it.
 
+If the price has already moved your way when you buy, the higher strike and the cap count from **where the price is now**, not from the price to beat. The higher strike then sits just past the current price, by the move still expected before the close. That keeps 10× within reach late in a window. The target option stays on the price to beat.
+
 ## Placing a multiplier order
 
 <Steps>
@@ -57,39 +65,57 @@ Every option stops paying at a **cap** 5 typical moves past the price to beat, s
     Choose **▲ Up** or **▼ Down** and enter an amount, as for any interval buy. A multiplier order is **$1 to $25**.
   </Step>
   <Step title="Drag the Multiplier slider">
-    The figure beside the slider, for example **5×**, names the mix. **5×** means the order pays about 5 times what a regular contract of the same amount pays if the price finishes **2.5 typical moves** your way (for BTC, about a 0.9% move in an hour). Smaller moves pay less than that; bigger moves pay more, up to the cap. At **1×** it is a regular interval buy. The slider goes up to **10×**, unless the window is near its end or its payout limit.
+    The figure beside the slider, for example **5×**, names the mix. At **5×**, the order makes **5 times your amount** in profit if the price closes far enough your way: $5 at 5× makes **+$25**. The card shows the price it takes. Smaller moves pay less than that; bigger moves pay more, up to the cap. At **1×** it is a regular interval buy. The slider goes up to **10×** until the window's last minute.
   </Step>
-  <Step title="Read what it pays">
-    Under the button you see **Chance of profit**, **Win up to**, the **Break-even** price, and the payout table (below). Those numbers are the real ones for your order.
+  <Step title="Read the card">
+    The card under the slider shows the real numbers for your order (see below). While the slider is above 1×, the market's **To beat** turns purple and shows your order's break-even price, and a purple line marks it on the chart.
   </Step>
   <Step title="Buy">
-    Tap **Buy Up 5× · $5** (or Down). The line under the button reads "Real money — the stake leaves your wallet now and is paid out at the close."
+    Tap **Buy Up 5.0× · $5** (or Down). The amount leaves your wallet now and is paid out at the close.
   </Step>
 </Steps>
 
-## Reading the payout table
+## Reading the card
 
-The table shows your profit or loss (**P&L**) at each price the market could close at. It starts with the header **To beat**, **Now**, and **Your order**. Here is an example for **NVDA Up, $5 at 5×**, bought at the start of a 60 min window with the price to beat at $217.40:
+The card has four figures:
+
+- **You risk**: your amount. It's the most you can lose.
+- **Win up to**: the most the order can pay, at the cap.
+- **+$N · If above $X** (or **If below** for Down): the close it takes to make your multiple. N is the setting times your amount.
+- **Chance of profit**: how likely the order is to close past its break-even.
+
+The **break-even** is the purple **To beat** price: the close where the order pays back exactly what you put in. Every close past it is a profit.
+
+Here is an example for **NVDA Up, $5 at 5×**, bought at the start of a 60 min window with the price to beat at $217.40:
+
+| Card | |
+|------|---|
+| **You risk** | $5.00 |
+| **Win up to** | $110.49 |
+| **+$25.00** | If above $218.53 |
+| **Chance of profit** | 28% |
+| **To beat** (purple) | $217.67 |
+
+And what it makes at different closes:
 
 | If NVDA closes | P&L |
 |----------------|-----|
 | Under $217.40 | −$5.00 |
-| Just above $217.40 | −$3.45 |
+| Just above $217.40 | −$3.37 |
 | **$217.67**: Break-even | $0.00 |
-| $218.00 | +$4.48 |
-| $218.60 | +$28.22 |
-| $219.50 | +$66.45 |
-| $220.42 or higher | +$105.54 |
-
-For this order the ticket shows **Chance of profit 28%** and **Win up to $110.54**.
+| $218.00 | +$4.56 |
+| **$218.53**: 5 times your amount | +$25.00 |
+| $219.50 | +$66.46 |
+| $220.42 or higher | +$105.49 |
 
 - **Under the price to beat**, the order loses its whole amount, like a losing interval contract.
 - **Just past it**, the order is right about the direction but has barely moved. Only the regular-contract part pays, so you get back part of your amount.
-- **Break-even** is the closing price where the order pays back exactly what you put in. Every close past it is a profit.
-- **The jump around $218.06** is the higher strike: past it, that part of the order starts paying too.
-- **"… or higher"** is the cap. The payout stops growing there.
+- **Past $218.06**, the higher strike, that part of the order starts paying too, so the profit grows faster.
+- **$220.42** is the cap. The payout stops growing there.
 
-The chart under the table draws the same thing: flat red where you lose, a green ramp up to the cap, and a dot where the price is now. A dashed line drops from each dot so you can read its price. Hover over a row to light up its dot.
+The numbers move with the live price and the time left. On a side that's already far ahead, a low setting can't always reach its multiple; the card then shows what the order can make.
+
+After you buy, the purple break-even line stays on the chart until the order settles or you sell it.
 
 <Note>
 The tie rule is the same as on every interval market: a close **at or above** the price to beat counts as Up. A Down order needs a close strictly below it.
@@ -103,14 +129,16 @@ What each part costs follows how much the market is moving. When it has been bus
 
 If you buy after the window has already moved your way, the break-even sits **above where you bought**, not at the price to beat. You are paying for the move that has already happened.
 
+High settings late in a window are long shots. With a few minutes left, a 10× order can pay many times its amount, but it rarely does. Check the **Chance of profit** before you buy.
+
 ## Your open orders
 
-Open multiplier orders show in **Live Positions** on the market page, with the multiplier, the amount, and a live value:
+Open multiplier orders show in **Live Positions** on the market page, with the side, the multiplier, the amount, and a live value:
 
 - **Now ~$6.20 (+$1.20) · wins up to $33.30**: what the order is worth at the current price, and the most it can pay.
 - **Open** while the window runs, **Paying…** at the close, and **Selling…** while a sale goes through.
 
-The order also appears under **Your orders** in the ticket, and in your Portfolio.
+The order also appears in your Portfolio.
 
 ## Selling early
 
@@ -129,14 +157,14 @@ A multiplier order settles on the window's close price like any interval contrac
 
 | Rule | What you see |
 |------|--------------|
-| **Amount** $1 to $25 per order | "Enter between $1 and $25." |
+| **Amount** $1 to $25 per order | The button reads **Min $1** or **Max $25 per order**. The server's message: "Enter between $1 and $25." |
+| **$50 per window**, counting your open orders in that window | "Multiplier orders are limited to $50 per window — try the next one." |
 | **$100 at risk per day** (US Eastern), counting open orders until they settle or are sold | "Multiplier orders are limited to $100 at risk per day." |
 | **No new orders in a window's last minute** | "Multiplier orders close in a window's last minute." |
-| **Paused** over the data releases, or outside a stock's multiplier hours | "The multiplier pauses over the 8:30 and 10:00 AM ET US data releases, and on stocks runs 10:30 AM – 3:30 PM ET on trading days and 9 PM – 4 AM ET Sunday to Thursday nights — regular Up / Down is still open." |
-| **The window's payout limit is used up** | The slider stops at a lower setting. |
-| **All multiplier orders are full** | "Multiplier orders are full right now — try a smaller stake or the next window." |
+| **Paused** at the times above | "The multiplier pauses for a short while around the market open (9–10 AM ET) and close (3:30–4:30 PM ET), the 4 AM and 8 PM ET session starts, the morning US data releases, and stocks' weekends — regular Up / Down is still open." |
 | **The price moved** before the order went through | "The price moved — check the new payout and try again." |
 | **No fresh price** | "Waiting for a fresh price — try again in a moment." |
+| **Not enough cash** | "Not enough cash for this stake." |
 | **Selling an order worth less than 1¢** | "This order has nothing to sell right now — it still pays off at the close." |
 
 The limits apply to multiplier orders only. Regular interval buys are not affected.
