@@ -1,7 +1,9 @@
 ---
 title: "Multiplier"
-description: "Use the Multiplier slider for a bigger payout on a bigger move: how it pays, the break-even price, when it's paused, selling early, settlement, and limits."
+description: "Use the Multiplier slider for a bigger payout on a bigger move: how it pays, how it splits your stake, the break-even price, when it's paused, selling early, settlement, and limits."
 ---
+
+import { StakeSplitChart } from "/snippets/stake-split-chart.jsx";
 
 The **Multiplier** is a slider on the interval ticket, from **1×** to **10×**. A regular interval contract pays the same $1 whether the price closes one cent or five dollars past the price to beat. A **multiplier order** pays **more the further the price closes in your direction**, up to a cap. In exchange it pays **less, or nothing, when the move is small**. The most you can lose is your stake.
 
@@ -67,24 +69,53 @@ What a multiplier order pays depends only on where the price closes:
 
 Every multiplier order is a mix of three parts:
 
-| Part | What it pays |
-|------|--------------|
-| **Regular contract** | $1 per contract if your direction is right, by any amount. The same as a regular interval buy. |
-| **Target option** | For every dollar the price finishes past the price to beat, so a bigger move pays more. |
-| **Higher-strike option** | For every dollar the price finishes past a **higher strike**, a little further out (1.1 typical moves for that market). It's cheaper, so each dollar buys more, but it pays only once the price clears that strike. |
+| Part | Starts paying | What it pays |
+|------|---------------|--------------|
+| **Regular contract** | On any close on your side of the price to beat | $1 per contract if your direction is right, by any amount. The same as a regular interval buy. |
+| **Target option** | Right at the price to beat | For every dollar the price finishes past the price to beat, so a bigger move pays more. |
+| **Higher-strike option** | At a **higher strike**, 1.1 typical moves past the price to beat | For every dollar the price finishes past that strike. It's cheaper, so each dollar buys more, but it pays only once the price clears the strike. |
+
+A **typical move** is how far that market usually moves over a window of that length, measured from its recent trading. It's re-measured as the market gets busier or quieter, so a busy market's strikes sit further out than a quiet one's.
+
+### How the slider splits your stake
 
 The slider sets the mix, and the mix for each setting is **fixed**: the same on every market and at every moment of the window. The live price changes what each part costs, never how your stake is divided.
+
+<StakeSplitChart />
+
+The split moves in three stages:
+
+- **1× to 3×:** your stake moves from the regular contract into the target option. A right call always pays something.
+- **3.5× to 7×:** the regular contract holds at 15% while your stake moves from the target option into the higher-strike option. A right call still always pays something.
+- **7× to 10×:** the regular contract is released. At 10×, your whole stake is in the higher-strike option, so a right call that ends short of the higher strike pays $0.
 
 | Setting | Regular contract | Target option | Higher strike | A right call that ends short of the higher strike |
 |---------|------------------|---------------|---------------|---------------------------------------------------|
 | 1× | 100% | — | — | pays in full |
 | 2× | 60% | 40% | — | pays something |
 | 3× | 20% | 80% | — | pays something |
+| 3.5× | 15% | 80% | 5% | pays something |
+| 4× | 15% | 75% | 10% | pays something |
 | 5× | 15% | 60% | 25% | pays something |
+| 6× | 15% | 45% | 40% | pays something |
 | 7× | 15% | 30% | 55% | pays something |
+| 8× | 10% | 20% | 70% | pays something |
+| 9× | 5% | 10% | 85% | pays something |
 | 10× | — | — | 100% | pays **$0** |
 
-Settings between the rows blend smoothly. Up to 7×, a right call always pays something back. At 10× the whole stake is in the higher-strike option, so a right call that doesn't reach it pays nothing.
+Settings between the rows blend in a straight line from one row to the next.
+
+### What ×N means
+
+**×N names the mix.** It's calibrated on a strong move, about **2.5 typical moves** your way. On a move that size, an order at ×N pays about N times what a regular contract of the same stake would. If a market's typical move over the window is 0.4%, that strong move is about 1%. Smaller moves pay less than N times; bigger moves pay more, up to the cap.
+
+The card's **+$N** row is a different, simpler figure: the close at which your profit reaches N times your stake.
+
+<Tip>
+The setting is a label for the mix. The card and **Payout at every price** show what your order actually pays at each closing price, for this market at this moment. Read those before you buy.
+</Tip>
+
+### The cap
 
 Every option stops paying at a **cap** 5 typical moves past the price to beat, so the most an order can pay is known when you place it.
 
