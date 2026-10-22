@@ -89,21 +89,23 @@ The split moves in three stages:
 - **3.5× to 7×:** the regular contract holds at 15% while your stake moves from the target option into the higher-strike option. A right call still always pays something.
 - **7× to 10×:** the regular contract is released. At 10×, your whole stake is in the higher-strike option, so a right call that ends short of the higher strike pays $0.
 
-| Setting | Regular contract | Target option | Higher strike | A right call that ends short of the higher strike |
-|---------|------------------|---------------|---------------|---------------------------------------------------|
-| 1× | 100% | — | — | pays in full |
-| 2× | 60% | 40% | — | pays something |
-| 3× | 20% | 80% | — | pays something |
-| 3.5× | 15% | 80% | 5% | pays something |
-| 4× | 15% | 75% | 10% | pays something |
-| 5× | 15% | 60% | 25% | pays something |
-| 6× | 15% | 45% | 40% | pays something |
-| 7× | 15% | 30% | 55% | pays something |
-| 8× | 10% | 20% | 70% | pays something |
-| 9× | 5% | 10% | 85% | pays something |
-| 10× | — | — | 100% | pays **$0** |
+<Accordion title="Exact split at each setting">
+  | Setting | Regular contract | Target option | Higher-strike option |
+  |---------|------------------|---------------|----------------------|
+  | 1× | 100% | — | — |
+  | 2× | 60% | 40% | — |
+  | 3× | 20% | 80% | — |
+  | 3.5× | 15% | 80% | 5% |
+  | 4× | 15% | 75% | 10% |
+  | 5× | 15% | 60% | 25% |
+  | 6× | 15% | 45% | 40% |
+  | 7× | 15% | 30% | 55% |
+  | 8× | 10% | 20% | 70% |
+  | 9× | 5% | 10% | 85% |
+  | 10× | — | — | 100% |
 
-Settings between the rows blend in a straight line from one row to the next.
+  Settings between the rows blend in a straight line from one row to the next.
+</Accordion>
 
 ### What ×N means
 
